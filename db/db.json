@@ -1,0 +1,36 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "Sofia",
+        "lastName": "Sanchez",
+        "secondLastName": "Fuentes",
+        "gender": "Mujer",
+        "birthDate": "24-02-1998",
+        "nif": "JUSDAGET",
+        "street": "Calle Diamante",
+        "number": "4",
+        "door": "C",
+        "postalCode": "28021",
+        "city": "Madrid",
+        "medicalBoardNumber": "29429",
+        "professionalType": "Médico"
+      },
+      {
+        "id": 2,
+        "name": "Sofia",
+        "lastName": "Sanchez",
+        "secondLastName": "Fuentes",
+        "gender": "Mujer",
+        "birthDate": "24-02-1998",
+        "nif": "JUSDAGET",
+        "street": "Calle Diamante",
+        "number": "4",
+        "door": "C",
+        "postalCode": "28021",
+        "city": "Madrid",
+        "medicalBoardNumber": "29429",
+        "professionalType": "Médico"
+      }
+    ]
+  }
