@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-user.component.scss']
 })
 export class NewUserComponent implements OnInit {
-
+  post = {
+    title: '',
+    body: ''
+  };
+  
   constructor() { }
 
   ngOnInit(): void {

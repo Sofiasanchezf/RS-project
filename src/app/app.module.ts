@@ -9,6 +9,8 @@ import { MaterialModule } from './material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { NewUserComponent } from './containers/new-user/new-user.component';
+import { FormsModule } from '@angular/forms';
+import { UserDetailComponent } from './containers/user-detail/user-detail.component'
 
 @NgModule({
   declarations: [
@@ -16,14 +18,16 @@ import { NewUserComponent } from './containers/new-user/new-user.component';
     UserListComponent,
     HeaderComponent,
     WelcomeComponent,
-    NewUserComponent
+    NewUserComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule, 
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

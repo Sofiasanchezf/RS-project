@@ -1,0 +1,33 @@
+<div class="center-content">
+    <mat-card>
+        <div class="card-header">
+            <div class="title">
+                <h2>{{user.name}} {{user.lastName}} {{user.secondLastName}}</h2>
+                <span class="line-information">ID: {{user.id}}</span>
+            </div>
+            <button mat-raised-button color="primary">Editar usuario</button>
+        </div>
+        <div class="information">
+            <div class="personal-information">
+                <h3>Personal information</h3>
+                <p class="line-information">Lastname</p><p>{{user.lastName}}</p>
+                <p class="line-information">Second lastname</p><p>{{user.secondLastName}}</p>
+                <p class="line-information">Gender</p><p>{{user.gender}}</p>
+                <p class="line-information">NIF</p><p>{{user.nif}}</p>
+                <p class="line-information">Birthdate</p><p>{{user.birthDate}}</p>
+            </div>
+            <div class="address">
+                <h3>Address information</h3>
+                <p class="line-information">Street</p><p>{{user.street}}</p>
+                <p class="line-information">Number</p><p>{{user.number}}</p>
+                <p class="line-information">Door</p><p>{{user.door}}</p>
+                <p class="line-information">Postal code</p><p>{{user.postalCode}}</p>
+            </div>
+            <div class="issurance">
+                <h3>Issurance information</h3>
+                <p class="line-information">Door</p><p>{{user.door}}</p>
+            </div>
+        </div>
+
+    </mat-card>
+</div>

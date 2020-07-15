@@ -1,0 +1,29 @@
+.form-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 7em;
+}
+
+.personal-information {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.address {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.issurance {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

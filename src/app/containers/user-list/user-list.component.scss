@@ -1,5 +1,5 @@
 .users {
-
+    padding-top: 7em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,6 +9,7 @@
         display: flex;
         justify-content: space-between;
         width: 60%;
+        cursor: pointer;
     }
 
 }

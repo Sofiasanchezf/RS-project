@@ -1,0 +1,11 @@
+mat-toolbar {
+    position: fixed;
+    z-index: 10;
+
+    p {
+        padding-left: 1em;
+        cursor: pointer;
+        outline: none;
+    }
+
+}
