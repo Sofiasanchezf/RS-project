@@ -10,7 +10,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { NewUserComponent } from './containers/new-user/new-user.component';
 import { FormsModule } from '@angular/forms';
-import { UserDetailComponent } from './containers/user-detail/user-detail.component'
+import { UserDetailComponent } from './containers/user-detail/user-detail.component';
+import { Error404Component } from './containers/error404/error404.component';
+import { DialogComponent } from './components/dialog/dialog.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { UserDetailComponent } from './containers/user-detail/user-detail.compon
     HeaderComponent,
     WelcomeComponent,
     NewUserComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    Error404Component,
+    DialogComponent
   ],
   imports: [
     BrowserModule,

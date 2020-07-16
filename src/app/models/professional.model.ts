@@ -1,10 +1,8 @@
-import { User } from "./user.model";
 
-type professional = 'Médico'
-    | 'Enfermero'
-    | 'Administrativo';
 
-export interface Professional extends User {
+export type professional = 'Doctor' | 'Nurse' | 'Administrative' | '';
+
+export interface Professional {
     medicalBoardNumber: string;
     professionalType?: professional;
 }

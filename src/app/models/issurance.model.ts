@@ -1,9 +1,7 @@
-type issurance = 'salud'
-    | 'familiar'
-    | 'dental';
+export type issuranceType = '' | 'salud' | 'familiar' | 'dental';
 
 export interface Issurance {
-    cardNumber: number;
+    cardNumber: string;
     name: string;
-    type: issurance;
+    type: issuranceType;
 }

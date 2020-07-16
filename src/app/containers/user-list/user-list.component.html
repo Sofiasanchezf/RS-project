@@ -1,9 +1,23 @@
 <div class="users">
-    <mat-card routerLink="/users/{{user.id}}" *ngFor="let user of getUsers()">
-        <div>
-            <h2>{{user.name}}</h2>
-            <p>{{user.lastName}}</p>
-        </div>
-    </mat-card>
-    <button mat-raised-button color="primary">Nuevo usuario</button>
+    <div class="users-list-container">
+        <mat-card *ngFor="let user of getUsers()">
+            <div class="container">
+                <div routerLink="/users/{{user.id}}">
+                    <h2>{{user.name}}</h2>
+                    <p>{{user.lastName}}</p>
+                </div>
+                <div class="buttons">
+                    <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button (click)="openRemoveDialog(user.id)" mat-fab color="warn" aria-label="Example icon button with a delete icon">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+    
+            </div>
+    
+        </mat-card>
+    </div>
+    <button routerLink="/users/new" class="btn-add" mat-raised-button color="primary">Nuevo usuario</button>
 </div>

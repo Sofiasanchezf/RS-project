@@ -1,116 +1,152 @@
 {
-    "users": [
-      {
-        "id": 1,
-        "name": "Sofia",
-        "lastName": "Sanchez",
-        "secondLastName": "Fuentes",
-        "gender": "Mujer",
-        "birthDate": "24-02-1998",
-        "nif": "JUSDAGET",
+  "users": [
+    {
+      "id": 2,
+      "name": "Sofia",
+      "lastName": "Sanchez",
+      "secondLastName": "Fuentes",
+      "gender": "Mujer",
+      "birthDate": "24-02-1998",
+      "nif": "JUSDAGET",
+      "address": {
         "street": "Calle Diamante",
         "number": "4",
         "door": "C",
         "postalCode": "28021",
-        "city": "Madrid",
-        "medicalBoardNumber": "29429",
-        "professionalType": "Médico"
+        "city": "Madrid"
       },
-      {
-        "id": 2,
-        "name": "Sofia",
-        "lastName": "Sanchez",
-        "secondLastName": "Fuentes",
-        "gender": "Mujer",
-        "birthDate": "24-02-1998",
-        "nif": "JUSDAGET",
-        "street": "Calle Diamante",
-        "number": "4",
-        "door": "C",
-        "postalCode": "28021",
-        "city": "Madrid",
+      "professional": {
         "medicalBoardNumber": "29429",
-        "professionalType": "Médico"
+        "professionalType": "Medico"
       },
-      {
-        "id": 3,
-        "name": "Sofia",
-        "lastName": "Sanchez",
-        "secondLastName": "Fuentes",
-        "gender": "Mujer",
-        "birthDate": "24-02-1998",
-        "nif": "JUSDAGET",
-        "street": "Calle Diamante",
-        "number": "4",
-        "door": "C",
-        "postalCode": "28021",
-        "city": "Madrid",
-        "medicalBoardNumber": "29429",
-        "professionalType": "Médico"
-      },
-      {
-        "id": 4,
-        "name": "Sofia",
-        "lastName": "Sanchez",
-        "secondLastName": "Fuentes",
-        "gender": "Mujer",
-        "birthDate": "24-02-1998",
-        "nif": "JUSDAGET",
-        "street": "Calle Diamante",
-        "number": "4",
-        "door": "C",
-        "postalCode": "28021",
-        "city": "Madrid",
-        "medicalBoardNumber": "29429",
-        "professionalType": "Médico"
-      },
-      {
-        "id": 5,
-        "name": "Sofia",
-        "lastName": "Sanchez",
-        "secondLastName": "Fuentes",
-        "gender": "Mujer",
-        "birthDate": "24-02-1998",
-        "nif": "JUSDAGET",
-        "street": "Calle Diamante",
-        "number": "4",
-        "door": "C",
-        "postalCode": "28021",
-        "city": "Madrid",
-        "medicalBoardNumber": "29429",
-        "professionalType": "Médico"
-      },
-      {
-        "id": 6,
-        "name": "Sofia",
-        "lastName": "Sanchez",
-        "secondLastName": "Fuentes",
-        "gender": "Mujer",
-        "birthDate": "24-02-1998",
-        "nif": "JUSDAGET",
-        "street": "Calle Diamante",
-        "number": "4",
-        "door": "C",
-        "postalCode": "28021",
-        "city": "Madrid",
-        "medicalBoardNumber": "29429",
-        "professionalType": "Médico"
-      },
-      {
-        "id": 7,
-        "name": "Sofia",
-        "lastName": "Sanchez",
-        "secondLastName": "Fuentes",
-        "gender": "Mujer",
-        "birthDate": "24-02-1998",
-        "nif": "JUSDAGET",
-        "street": "Calle Diamante",
-        "number": "4",
-        "door": "C",
-        "postalCode": "28021",
-        "city": "Madrid",
-        "medicalBoardNumber": "29429",
-        "professionalType": "Médico"
+      "patient": {
+        "nhc": "",
+        "issuranceList": {
+          "issurance": {
+            "cardNumber": "",
+            "name": "",
+            "type": ""
+          }
+        }
       }
-    ]
-  }
+    },
+    {
+      "id": 3,
+      "name": "Sofia",
+      "lastName": "Sanchez",
+      "secondLastName": "Fuentes",
+      "gender": "Mujer",
+      "birthDate": "24-02-1998",
+      "nif": "JUSDAGET",
+      "address": {
+        "street": "Calle Diamante",
+        "number": "4",
+        "door": "C",
+        "postalCode": "28021",
+        "city": "Madrid"
+      },
+      "patient": {
+        "nhc": "",
+        "issuranceList": {
+          "issurance": {
+            "cardNumber": "",
+            "name": "",
+            "type": ""
+          }
+        }
+      },
+      "professional": {
+        "medicalBoardNumber": "29429",
+        "professionalType": "Medico"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Sofia",
+      "lastName": "Sanchez",
+      "secondLastName": "Fuentes",
+      "gender": "Mujer",
+      "birthDate": "24-02-1998",
+      "nif": "JUSDAGET",
+      "address": {
+        "street": "Calle Diamante",
+        "number": "4",
+        "door": "C",
+        "postalCode": "28021",
+        "city": "Madrid"
+      },
+      "patient": {
+        "nhc": "",
+        "issuranceList": {
+          "issurance": {
+            "cardNumber": "",
+            "name": "",
+            "type": ""
+          }
+        }
+      },
+      "professional": {
+        "medicalBoardNumber": "29429",
+        "professionalType": "Medico"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Sofia",
+      "lastName": "Sanchez",
+      "secondLastName": "Fuentes",
+      "gender": "Mujer",
+      "birthDate": "24-02-1998",
+      "nif": "JUSDAGET",
+      "address": {
+        "street": "Calle Diamante",
+        "number": "4",
+        "door": "C",
+        "postalCode": "28021",
+        "city": "Madrid"
+      },
+      "patient": {
+        "nhc": "",
+        "issuranceList": {
+          "issurance": {
+            "cardNumber": "",
+            "name": "",
+            "type": ""
+          }
+        }
+      },
+      "professional": {
+        "medicalBoardNumber": "29429",
+        "professionalType": "Medico"
+      }
+    },
+    {
+      "name": "ss",
+      "lastName": "ss",
+      "secondLastName": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "street": "",
+        "number": "",
+        "door": "",
+        "postalCode": "",
+        "city": ""
+      },
+      "professional": {
+        "medicalBoardNumber": "ss",
+        "professionalType": "Administrative"
+      },
+      "patient": {
+        "nhc": "",
+        "issuranceList": {
+          "cardNumber": "",
+          "name": "",
+          "type": ""
+        }
+      },
+      "id": 6
+    }
+  ]
+}

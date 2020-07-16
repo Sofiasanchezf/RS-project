@@ -10,16 +10,33 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserDetailComponent implements OnInit {
 
-  private user: User;
+  user: User;
+
   constructor(private userService: UserService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getUser(this.route.snapshot.params.id);
+
+
+    // this.route.params.subscribe(params => {
+    //   if (params.id) {
+    //     this.userService.getUserById(params.id)
+    //       .subscribe(post => {
+    //         this.user = post;
+    //       });
+    //   }
+    // });
+
+    console.log('this ' + this.user);
+
   }
 
   getUser(id: string): void {
-    this.userService.getUserById(id).subscribe((data: User) => {
-      this.user = data;
+    console.log('id:' + id);
+    this.userService.getUserById(id).subscribe((result: User) => {
+      this.user = result;
+      console.log('imprimipendo user ');
+      console.log(this.user);
     });
   }
   

@@ -1,86 +1,126 @@
-<form #newUserFrom="ngForm">
+<form #newUserFrom="ngForm" (ngSubmit)="submitPost(newUserFrom)">
+
     <div class="form-container">
         <div class="personal-information">
+            <h3>Personal information</h3>
+
+            <!-- --  -->
+            <h3>Choose if you want to create a patient or a professional</h3>
+            <mat-form-field appearance="fill">
+                <mat-label>User type</mat-label>
+                <mat-select (selectionChange)="chooseType($event)">
+                    <mat-option value="Pacient">Pacient</mat-option>
+                    <mat-option value="Professional">Professional</mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+            <!-- --  -->
+
             <mat-form-field appearance="fill">
                 <mat-label>Name</mat-label>
-                <input matInput required>
+                <input matInput required name="username" [(ngModel)]="user.name">
             </mat-form-field>
             <br>
             <mat-form-field appearance="fill">
                 <mat-label>Last Name</mat-label>
-                <input matInput required>
+                <input matInput required name="lastname" [(ngModel)]="user.lastName">
             </mat-form-field>
             <br>
             <mat-form-field appearance="fill">
                 <mat-label>Second Last Name</mat-label>
-                <input matInput>
+                <input matInput name="secondlastname" [(ngModel)]="user.secondLastName">
             </mat-form-field>
             <br>
             <mat-form-field appearance="fill">
                 <mat-label>NIF / DNI</mat-label>
-                <input matInput>
+                <input matInput name="identification" [(ngModel)]="user.nif">
             </mat-form-field>
             <br>
             <mat-form-field appearance="fill">
                 <mat-label>Gender</mat-label>
-                <mat-select>
-                    <mat-option value="option">Male</mat-option>
-                    <mat-option value="option">Female</mat-option>
+                <mat-select name="gender" [(ngModel)]="user.gender">
+                    <mat-option value="Male">Male</mat-option>
+                    <mat-option value="Female">Female</mat-option>
                 </mat-select>
             </mat-form-field>
             <br>
+            
         </div>
         <div class="address">
+            <h3>Address information</h3>
             <mat-form-field appearance="fill">
                 <mat-label>Street</mat-label>
-                <input matInput>
+                <input matInput name="street" [(ngModel)]="user.address.street">
             </mat-form-field>
             <br>
             <mat-form-field appearance="fill">
                 <mat-label>Number</mat-label>
-                <input matInput>
+                <input matInput name="number" [(ngModel)]="user.address.number">
             </mat-form-field>
             <br>
             <mat-form-field appearance="fill">
                 <mat-label>Door</mat-label>
-                <input matInput>
+                <input matInput name="door" [(ngModel)]="user.address.door">
             </mat-form-field>
             <br>
             <mat-form-field appearance="fill">
                 <mat-label>Postal Code</mat-label>
-                <input matInput>
+                <input matInput name="postalcode" [(ngModel)]="user.address.postalCode">
             </mat-form-field>
             <br>
             <mat-form-field appearance="fill">
                 <mat-label>City</mat-label>
-                <input matInput>
+                <input name="city" matInput [(ngModel)]="user.address.city">
             </mat-form-field>
             <br>
         </div>
-        <div class="issurance">
+        <div *ngIf="!isPacient" class="issurance">
+            <h3>More information</h3>
+            <mat-form-field appearance="fill">
+                <mat-label>Medical Board Number</mat-label>
+                <input required matInput name="medicalnumber" [(ngModel)]="user.professional.medicalBoardNumber">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Professional type</mat-label>
+                <mat-select name="professionaltype"  [(ngModel)]="user.professional.professionalType" (selectionChange)="chooseProfessionalType($event)">
+                    <mat-option value="Doctor">Doctor</mat-option>
+                    <mat-option value="Nurse">Nurse</mat-option>
+                    <mat-option value="Administrative">Administrative</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+        </div>
+        <div *ngIf="isPacient" class="issurance">
+            <h3>Issurance information</h3>
+            <mat-form-field appearance="fill">
+                <mat-label>NHC</mat-label>
+                <input required matInput name="nhc" [(ngModel)]="user.patient.nhc">
+            </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>Card Number</mat-label>
-                <input matInput>
+                <!-- <input matInput > -->
+                <input matInput name="cardnumber" [(ngModel)]="user.patient.issuranceList.cardNumber">
             </mat-form-field>
             <br>
             <mat-form-field appearance="fill">
                 <mat-label>Name</mat-label>
-                <input matInput>
+                <!-- <input matInput > -->
+                <input matInput name="issurancename" [(ngModel)]="user.patient.issuranceList.name">
             </mat-form-field>
             <br>
-            <mat-form-field appearance="fill">
+            <!-- <mat-form-field appearance="fill">
                 <mat-label>Type</mat-label>
-                <mat-select>
+                    <mat-select name="issurancetype" [(ngModel)]="user.pacient.issuranceList.type">
                     <mat-option value="option">Salud</mat-option>
                     <mat-option value="option">Familiar</mat-option>
                     <mat-option value="option">Dental</mat-option>
                 </mat-select>
             </mat-form-field>
-            <br>
+            <br> -->
         </div>
-
     </div>
     <div class="content-center">
-        <button mat-raised-button color="primary">Crear usuario</button>
+        <button type="submit" mat-raised-button color="primary">Crear usuario</button>
     </div>
 </form>

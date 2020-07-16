@@ -1,7 +1,9 @@
 import { Address } from "./address.model";
+import { Patient } from "./patient.model";
+import { Professional } from "./professional.model";
 
 export interface User {
-    _id: number;
+    id?: number;
     name: string;
     lastName: string;
     secondLastName?: string;
@@ -9,4 +11,6 @@ export interface User {
     birthDate?: string;
     nif?: string;
     address?: Address;
+    patient?: Patient;
+    professional?: Professional;
 }
