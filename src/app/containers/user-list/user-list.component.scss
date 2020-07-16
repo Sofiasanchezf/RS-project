@@ -27,13 +27,20 @@
         }
     }
 
-    .btn-add {
-        height: 3.5em;
-        margin-right: 3.5em;
-        width: 12em;
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        
+        .btn-add {
+            height: 3.5em;
+            margin-right: 3.5em;
+            margin-bottom: 0.5em;
+            width: 12em;
+        }
     }
+    
 
-    .buttons {
+    .buttons-card {
         button {
             margin-left: 0.5em;
         }

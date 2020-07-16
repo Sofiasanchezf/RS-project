@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
-// import { User } from 'src/app/'
+import { User } from 'src/app/models/user.model';
 import { professional } from 'src/app/models/professional.model'
 import { issuranceType } from 'src/app/models/issurance.model';
 
@@ -12,8 +12,7 @@ import { issuranceType } from 'src/app/models/issurance.model';
   styleUrls: ['./new-user.component.scss']
 })
 export class NewUserComponent implements OnInit {
-  user = {
-
+  user: User = {
     name: '',
     lastName: '',
     secondLastName: '',
@@ -47,20 +46,44 @@ export class NewUserComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      if (params.id) {
+        this.userService.getUserById(params.id)
+          .subscribe(user => {
+            this.user = user;
+          });
+      }
+    });
   }
 
   submitPost(postForm: NgForm): void {
     console.log(postForm);
     if (postForm.form.status === 'VALID') {
-      // if (this.post.hasOwnProperty('id')) {
-      //   this.userService.updatePost(this.post)
-      //     .subscribe(() => this.router.navigate(['/posts']));
-      // } else {
-      //   this.postService.insertPost(this.post)
-      //     .subscribe(() => this.router.navigate(['/posts']));
-      // }
-      this.userService.addUser(this.user).subscribe(() => this.router.navigate(['/users']));
+      if (this.user.hasOwnProperty('id')) {
+        this.userService.updateUser(this.user).subscribe(() => this.router.navigate(['/users']));
+      } else {
+        if (this.isPacient && this.user.professional.medicalBoardNumber != '') {
+          this.resetProfessional();
+        }
+
+        if (!this.isPacient && this.user.patient.nhc != '') {
+          this.resetPatient();
+        }
+        this.userService.addUser(this.user).subscribe(() => this.router.navigate(['/users']));
+      }
+      
     }
+
+  }
+
+  resetProfessional(): void {
+    this.user.professional.medicalBoardNumber = '';
+    this.user.professional.professionalType = '';
+  }
+
+  resetPatient(): void {
+    this.user.patient.nhc = '';
+    this.user.patient.issuranceList = { cardNumber: '', name: '', type: '' as issuranceType };
 
   }
 
@@ -72,7 +95,6 @@ export class NewUserComponent implements OnInit {
       this.isPacient = false;
     }
   }
-
 
   chooseProfessionalType(event): void {
     console.log(event);

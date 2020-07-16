@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user.model';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 import { NgForm } from '@angular/forms';
 
 @Injectable({
@@ -38,7 +38,8 @@ export class UserService {
     return this.httpClient.post<User>(this.API_URL + 'users', user);
   }
 
-  // insertPost(post: Post): Observable<Post> {
-  //   return this.httpClient.post<Post>(this.API_URL + 'posts', post);
-  // }
+  updateUser(user: User): Observable<User> {
+    return this.httpClient.put<User>(this.API_URL + 'users/' + user.id, user);
+  }
+
 }

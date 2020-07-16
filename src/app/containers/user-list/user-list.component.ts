@@ -3,6 +3,7 @@ import { UserService } from 'src/app/services/user.service'
 import { User } from 'src/app/models/user.model';
 import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-list',
@@ -19,6 +20,29 @@ export class UserListComponent implements OnInit {
 
   getUsers(): User[] {
     return this.userService.getUsers();
+  }
+
+  openRemoveDoctorsDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '250px',
+      data: { title: 'Eliminar todos los doctores', body: '¿Estás seguro de eliminar todos los doctores?' }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('eliminando post...', result);
+      if (result) {
+
+        const doctors: User[] = this.userService.getUsers().filter(
+          (user: User) => user.professional.professionalType === 'Doctor'
+        );
+        
+        for (let doctor of doctors) {
+          this.userService.deleteUser(doctor.id).subscribe(() => {
+            this.userService.getAllUsers();
+          });
+        }
+        
+      }
+    });
   }
 
   openRemoveDialog(id: number): void {

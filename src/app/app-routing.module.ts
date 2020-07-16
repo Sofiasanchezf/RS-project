@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'users', component: UserListComponent },
   { path: 'users/new', component: NewUserComponent },
   { path: 'users/:id', component: UserDetailComponent },
+  { path: 'users/:id/edit', component: NewUserComponent },
   // {path: '**', component: Error404Component}
 ];
 

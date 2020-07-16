@@ -6,18 +6,24 @@
                     <h2>{{user.name}}</h2>
                     <p>{{user.lastName}}</p>
                 </div>
-                <div class="buttons">
-                    <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                <div class="buttons-card">
+                    <button routerLink="/users/{{user.id}}/edit" mat-fab color="primary"
+                        aria-label="Example icon button with a delete icon">
                         <mat-icon>edit</mat-icon>
                     </button>
-                    <button (click)="openRemoveDialog(user.id)" mat-fab color="warn" aria-label="Example icon button with a delete icon">
+                    <button (click)="openRemoveDialog(user.id)" mat-fab color="warn"
+                        aria-label="Example icon button with a delete icon">
                         <mat-icon>delete</mat-icon>
                     </button>
                 </div>
-    
+
             </div>
-    
+
         </mat-card>
     </div>
-    <button routerLink="/users/new" class="btn-add" mat-raised-button color="primary">Nuevo usuario</button>
+    <div class="buttons">
+        <button routerLink="/users/new" class="btn-add" mat-raised-button color="primary">Nuevo usuario</button>
+        <button (click)="openRemoveDoctorsDialog()" class="btn-add" mat-raised-button color="primary">Delete doctors</button>
+    </div>
+
 </div>
