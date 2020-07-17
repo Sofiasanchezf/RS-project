@@ -255,6 +255,293 @@
         ]
       },
       "id": 15
+    },
+    {
+      "name": "ss",
+      "lastName": "ss",
+      "secondLastName": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "street": "",
+        "number": "",
+        "door": "",
+        "postalCode": "",
+        "city": ""
+      },
+      "professional": {
+        "medicalBoardNumber": "",
+        "professionalType": ""
+      },
+      "patient": {
+        "nhc": 333,
+        "issuranceList": [
+          {
+            "cardNumber": "",
+            "name": "",
+            "type": ""
+          },
+          {
+            "cardNumber": "",
+            "name": "",
+            "type": ""
+          }
+        ]
+      },
+      "id": 16
+    },
+    {
+      "name": "sfsfs",
+      "lastName": "sfsfs",
+      "secondLastName": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "street": "",
+        "number": "",
+        "door": "",
+        "postalCode": "",
+        "city": ""
+      },
+      "professional": {
+        "medicalBoardNumber": "",
+        "professionalType": ""
+      },
+      "patient": {
+        "nhc": 555,
+        "issuranceList": [
+          {
+            "cardNumber": 67,
+            "name": "66666",
+            "type": "Health"
+          },
+          {
+            "cardNumber": "",
+            "name": "",
+            "type": ""
+          }
+        ]
+      },
+      "id": 17
+    },
+    {
+      "name": "45",
+      "lastName": "ss",
+      "secondLastName": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "street": "",
+        "number": "",
+        "door": "",
+        "postalCode": "",
+        "city": ""
+      },
+      "professional": {
+        "medicalBoardNumber": "",
+        "professionalType": ""
+      },
+      "patient": {
+        "nhc": 111,
+        "issuranceList": [
+          {
+            "cardNumber": 89,
+            "name": "77",
+            "type": "Health"
+          },
+          {
+            "cardNumber": 56,
+            "name": "44",
+            "type": "Dental"
+          }
+        ]
+      },
+      "id": 18
+    },
+    {
+      "name": "56556",
+      "lastName": "56565",
+      "secondLastName": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "street": "",
+        "number": "",
+        "door": "",
+        "postalCode": "",
+        "city": ""
+      },
+      "professional": {
+        "medicalBoardNumber": "",
+        "professionalType": ""
+      },
+      "patient": {
+        "nhc": 55,
+        "issuranceList": [
+          {
+            "cardNumber": 67,
+            "name": "hola",
+            "type": "Health"
+          },
+          {
+            "cardNumber": 90,
+            "name": "787",
+            "type": "Family"
+          }
+        ]
+      },
+      "id": 19
+    },
+    {
+      "name": "7878",
+      "lastName": "7878",
+      "secondLastName": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "street": "",
+        "number": "",
+        "door": "",
+        "postalCode": "",
+        "city": ""
+      },
+      "professional": {
+        "medicalBoardNumber": "",
+        "professionalType": ""
+      },
+      "patient": {
+        "nhc": 78,
+        "issuranceList": [
+          {
+            "cardNumber": 78,
+            "name": "777",
+            "type": "Health"
+          },
+          {
+            "cardNumber": 666,
+            "name": "8888",
+            "type": "Health"
+          },
+          {
+            "cardNumber": "444",
+            "name": "",
+            "type": ""
+          }
+        ]
+      },
+      "id": 20
+    },
+    {
+      "name": "66",
+      "lastName": "66",
+      "secondLastName": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "street": "",
+        "number": "",
+        "door": "",
+        "postalCode": "",
+        "city": ""
+      },
+      "professional": {
+        "medicalBoardNumber": "",
+        "professionalType": ""
+      },
+      "patient": {
+        "nhc": 868,
+        "issuranceList": [
+          {
+            "cardNumber": 777,
+            "name": "77",
+            "type": "Health"
+          },
+          {
+            "cardNumber": 90,
+            "name": "jjjj",
+            "type": "Dental"
+          }
+        ]
+      },
+      "id": 21
+    },
+    {
+      "name": "ssasfasffs",
+      "lastName": "s",
+      "secondLastName": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "street": "",
+        "number": "",
+        "door": "",
+        "postalCode": "",
+        "city": ""
+      },
+      "professional": {
+        "medicalBoardNumber": "",
+        "professionalType": ""
+      },
+      "patient": {
+        "nhc": 4,
+        "issuranceList": [
+          {
+            "cardNumber": 66,
+            "name": "hola",
+            "type": "Health"
+          },
+          {
+            "id": 1,
+            "cardNumber": 66666,
+            "name": "asidos",
+            "type": "Dental"
+          },
+          {
+            "id": 2,
+            "cardNumber": null,
+            "name": "",
+            "type": ""
+          }
+        ]
+      },
+      "id": 22
+    },
+    {
+      "name": "444",
+      "lastName": "44",
+      "secondLastName": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "street": "45444",
+        "number": "",
+        "door": "",
+        "postalCode": "",
+        "city": ""
+      },
+      "professional": {
+        "medicalBoardNumber": "",
+        "professionalType": ""
+      },
+      "patient": {
+        "nhc": 5644,
+        "issuranceList": [
+          {
+            "cardNumber": "",
+            "name": "",
+            "type": ""
+          }
+        ]
+      },
+      "id": 23
     }
   ]
 }

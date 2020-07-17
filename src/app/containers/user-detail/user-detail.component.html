@@ -50,61 +50,6 @@
                     <p>{{user?.professional.professionalType}}</p>
                 </mat-tab>
             </mat-tab-group>
-            <!-- <div class="personal-information">
-                <h3>Personal information</h3>
-                <p class="line-information">Lastname</p><p>{{user?.lastName}}</p>
-                <p class="line-information">Second lastname</p><p>{{user?.secondLastName}}</p>
-                <p class="line-information">Gender</p><p>{{user?.gender}}</p>
-                <p class="line-information">NIF</p><p>{{user?.nif}}</p>
-                <p class="line-information">Birthdate</p><p>{{user?.birthDate}}</p>
-            </div>
-            <div class="address">
-                <h3>Address information</h3>
-                <p class="line-information">Street</p><p>{{user?.address.street}}</p>
-                <p class="line-information">Number</p><p>{{user?.address.number}}</p>
-                <p class="line-information">Door</p><p>{{user?.address.door}}</p>
-                <p class="line-information">Postal code</p><p>{{user?.address.postalCode}}</p>
-            </div>
-            <div *ngIf="user?.patient.nhc != ''" class="issurance">
-                <h3>Issurance information</h3>
-                <p class="line-information">NHC</p><p>{{user?.patient.nhc}}</p>
-                <mat-card *ngFor="let issurance of user?.patient.issuranceList">
-                    <p class="line-information">Issurance name</p><p>{{issurance.name}}</p>
-                    <p class="line-information">Issurance card number</p><p>{{issurance.cardNumber}}</p>
-                    <p class="line-information">Issurance type</p><p>{{issurance.type}}</p>
-                </mat-card><br>
-                
-            </div> 
-            <div *ngIf="user?.professional.medicalBoardNumber != ''" class="issurance">
-                <h3>More information</h3>
-                <p class="line-information">Medical board number</p>
-                <p>{{user?.professional.medicalBoardNumber}}</p>
-                <p class="line-information">Professional type</p>
-                <p>{{user?.professional.professionalType}}</p>
-            </div> -->
         </div>
     </mat-card>
-    <!-- <form #newIsuranceFrom="ngForm" (ngSubmit)="addIsurance(newIsuranceFrom)">
-        <mat-form-field appearance="fill">
-            <mat-label>Card Number</mat-label>
-            <input type="number" matInput name="cardnumber" [(ngModel)]="user.patient.issuranceList.cardNumber">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>Name</mat-label>
-            <input matInput name="issurancename" [(ngModel)]="user.patient.issuranceList.name">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>Type</mat-label>
-            <mat-select name="issurancetype" [(ngModel)]="user.patient.issuranceList.type">
-                <mat-option value="Health">Health</mat-option>
-                <mat-option value="Family">Familiar</mat-option>
-                <mat-option value="Dental">Dental</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <br>
-        <button type="submit">Add insurer</button>
-    </form> -->
-
 </div>

@@ -14,11 +14,9 @@
     <div *ngIf="user.id" class="form-container">
         <div class="flex-col-center">
             <h3>Here you can change the data of this user</h3>
-            <!-- <mat-form-field appearance="fill"> -->
             <p>User type</p>
             <p *ngIf="user.patient.nhc !== '' ">Pacient</p>
             <p *ngIf="user.professional.medicalBoardNumber !== '' ">{{user.professional.professionalType}}</p>
-            <!-- </mat-form-field> -->
         </div>
     </div>
     <div class="form-container-2">
@@ -39,11 +37,11 @@
                 <input matInput name="secondlastname" [(ngModel)]="user.secondLastName">
             </mat-form-field>
             <br>
-            <mat-form-field appearance="fill" >
+            <mat-form-field appearance="fill">
                 <mat-label>NIF / DNI</mat-label>
-                <input pattern="[A-Za-z]{3}[0-9]{6}[A-Za-z]|[0-9]{8}[A-Za-z]" matInput name="identification" [(ngModel)]="user.nif"
-                    #identification="ngModel" id="identification">
-    
+                <input pattern="[A-Za-z]{3}[0-9]{6}[A-Za-z]|[0-9]{8}[A-Za-z]" matInput name="identification"
+                    [(ngModel)]="user.nif" #identification="ngModel" id="identification">
+
                 <div *ngIf="identification.errors && (newUserFrom.submitted)">
                     <p *ngIf="identification.errors.pattern">Email must contain at least the @ character</p>
                 </div>
@@ -91,7 +89,8 @@
             <h3>More information</h3>
             <mat-form-field appearance="fill">
                 <mat-label>Medical Board Number</mat-label>
-                <input  type="number" required matInput name="medicalnumber" [(ngModel)]="user.professional.medicalBoardNumber">
+                <input type="number" required matInput name="medicalnumber"
+                    [(ngModel)]="user.professional.medicalBoardNumber">
             </mat-form-field>
             <br>
             <mat-form-field appearance="fill">
@@ -112,29 +111,34 @@
                 <input type="number" required matInput name="nhc" [(ngModel)]="user.patient.nhc">
             </mat-form-field>
             <br>
-            <mat-form-field appearance="fill">
-                <mat-label>Card Number</mat-label>
-                <!-- <input matInput > -->
-                <input type="number" matInput name="cardnumber" [(ngModel)]="user.patient.issuranceList.cardNumber">
-            </mat-form-field>
-            <br>
-            <mat-form-field appearance="fill">
-                <mat-label>Name</mat-label>
-                <!-- <input matInput > -->
-                <input matInput name="issurancename" [(ngModel)]="user.patient.issuranceList.name">
-            </mat-form-field>
-            <br>
-            <mat-form-field appearance="fill">
-                <mat-label>Type</mat-label>
-                <mat-select name="issurancetype" [(ngModel)]="user.patient.issuranceList.type">
-                    <mat-option value="Health">Health</mat-option>
-                    <mat-option value="Family">Familiar</mat-option>
-                    <mat-option value="Dental">Dental</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <br>
+            <div *ngFor="let insurance of user.patient.issuranceList">
+                <mat-form-field appearance="fill">
+                    <mat-label>Card Number {{i}}</mat-label>
+                    <input type="number" matInput name="cardnumber-{{insurance.id}}" [(ngModel)]="insurance.cardNumber">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Name</mat-label>
+                    <input matInput name="issurancename-{{insurance.id}}" [(ngModel)]="insurance.name">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Type</mat-label>
+                    <mat-select name="issurancetype-{{insurance.id}}" [(ngModel)]="insurance.type">
+                        <mat-option value="Health">Health</mat-option>
+                        <mat-option value="Family">Familiar</mat-option>
+                        <mat-option value="Dental">Dental</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <br>
+                <button mat-raised-button color="accent" type="button" (click)="addIsurance()">Add Isurance</button>
+            </div>
+
+
+
         </div>
     </div>
+
     <div class="content-center">
         <button *ngIf="!user.id" type="submit" mat-raised-button color="primary">Crear usuario</button>
         <button *ngIf="user.id" type="submit" mat-raised-button color="primary">Actualizar usuario</button>

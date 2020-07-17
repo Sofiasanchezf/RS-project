@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormArray, FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
@@ -41,9 +41,10 @@ export class NewUserComponent implements OnInit {
   };
 
   isPacient = true;
+  uniqueId = 1;
 
   constructor(private userService: UserService, private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -52,7 +53,7 @@ export class NewUserComponent implements OnInit {
           .subscribe(user => {
             this.user = user;
             console.log(user.professional.medicalBoardNumber)
-            if(user.professional.medicalBoardNumber !== '') {
+            if (user.professional.medicalBoardNumber !== '') {
               this.isPacient = false;
             }
           });
@@ -66,7 +67,7 @@ export class NewUserComponent implements OnInit {
       if (this.user.hasOwnProperty('id')) {
         this.userService.updateUser(this.user).subscribe(() => this.router.navigate(['/users']));
       } else {
-        if (this.isPacient && this.user.professional.medicalBoardNumber != '') {
+        if (this.isPacient && this.user.professional.medicalBoardNumber != '') {
           this.resetProfessional();
         }
 
@@ -75,7 +76,7 @@ export class NewUserComponent implements OnInit {
         }
         this.userService.addUser(this.user).subscribe(() => this.router.navigate(['/users']));
       }
-      
+
     }
 
   }
@@ -85,14 +86,14 @@ export class NewUserComponent implements OnInit {
     this.user.professional.professionalType = '';
   }
 
-  resetPatient(): void {
+  resetPatient(): void {
     this.user.patient.nhc = '';
     this.user.patient.issuranceList = [];
 
   }
 
   verifyIsPatient(): boolean {
-    if(this.user.patient.nhc !== '') {
+    if (this.user.patient.nhc !== '') {
       return true;
     } else if (this.user.professional.medicalBoardNumber !== '') {
       return false;
@@ -120,4 +121,20 @@ export class NewUserComponent implements OnInit {
 
     console.log(this.user);
   }
+
+  addIsurance(): void {
+    console.log(this.user.patient.issuranceList);
+    let as = {
+      id: this.uniqueId++,
+      cardNumber: '444',
+      name: '',
+      type: '' as issuranceType
+    }
+    this.user.patient.issuranceList.push(as)
+    console.log('USERRRR ' + this.user)
+    console.log(this.user.patient.issuranceList);
+  }
+
+
+
 }
