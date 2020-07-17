@@ -11,7 +11,12 @@ import { issuranceType } from 'src/app/models/issurance.model';
   templateUrl: './new-user.component.html',
   styleUrls: ['./new-user.component.scss']
 })
+
+
 export class NewUserComponent implements OnInit {
+
+  Months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "Jul", "Aug", "Sept", "Nov", "Dec"];
+
   user: User = {
     name: '',
     lastName: '',
@@ -42,6 +47,8 @@ export class NewUserComponent implements OnInit {
 
   isPacient = true;
   uniqueId = 1;
+  minDate = new Date(2000, 0, 1).toLocaleString();
+  maxDate = new Date().toLocaleString();
 
   constructor(private userService: UserService, private router: Router,
     private route: ActivatedRoute, private fb: FormBuilder) { }
@@ -59,6 +66,8 @@ export class NewUserComponent implements OnInit {
           });
       }
     });
+    console.log(this.minDate);
+    console.log(this.maxDate);
   }
 
   submitPost(postForm: NgForm): void {
@@ -74,11 +83,25 @@ export class NewUserComponent implements OnInit {
         if (!this.isPacient && this.user.patient.nhc != '') {
           this.resetPatient();
         }
+
+        this.parseDateToString();
+        console.log(this.user.birthDate);
         this.userService.addUser(this.user).subscribe(() => this.router.navigate(['/users']));
       }
 
     }
 
+  }
+
+  parseDateToString() {
+    let dateString = '' + this.user.birthDate;
+    let dateStringSplit = dateString.split(' ');
+
+    let day = dateStringSplit[2];
+    let month = this.Months.indexOf(dateStringSplit[1]);
+    let year = dateStringSplit[3];
+    
+    this.user.birthDate = day + '/' + month + '/' + year;
   }
 
   resetProfessional(): void {
@@ -123,16 +146,14 @@ export class NewUserComponent implements OnInit {
   }
 
   addIsurance(): void {
-    console.log(this.user.patient.issuranceList);
-    let as = {
+
+    let newIsurance = {
       id: this.uniqueId++,
-      cardNumber: '444',
+      cardNumber: '',
       name: '',
       type: '' as issuranceType
     }
-    this.user.patient.issuranceList.push(as)
-    console.log('USERRRR ' + this.user)
-    console.log(this.user.patient.issuranceList);
+    this.user.patient.issuranceList.push(newIsurance);
   }
 
 
