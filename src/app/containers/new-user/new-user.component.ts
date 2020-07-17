@@ -32,11 +32,11 @@ export class NewUserComponent implements OnInit {
     },
     patient: {
       nhc: '',
-      issuranceList: {
+      issuranceList: [{
         cardNumber: '',
         name: '',
         type: '' as issuranceType
-      }
+      }]
     }
   };
 
@@ -51,6 +51,10 @@ export class NewUserComponent implements OnInit {
         this.userService.getUserById(params.id)
           .subscribe(user => {
             this.user = user;
+            console.log(user.professional.medicalBoardNumber)
+            if(user.professional.medicalBoardNumber !== '') {
+              this.isPacient = false;
+            }
           });
       }
     });
@@ -83,8 +87,16 @@ export class NewUserComponent implements OnInit {
 
   resetPatient(): void {
     this.user.patient.nhc = '';
-    this.user.patient.issuranceList = { cardNumber: '', name: '', type: '' as issuranceType };
+    this.user.patient.issuranceList = [];
 
+  }
+
+  verifyIsPatient(): boolean {
+    if(this.user.patient.nhc !== '') {
+      return true;
+    } else if (this.user.professional.medicalBoardNumber !== '') {
+      return false;
+    }
   }
 
   chooseType(event): void {
@@ -97,10 +109,10 @@ export class NewUserComponent implements OnInit {
   }
 
   chooseProfessionalType(event): void {
-    console.log(event);
-    if (event.value === 'Medico') {
+    console.log('event ' + event.value);
+    if (event.value === 'Doctor') {
       this.user.professional.professionalType = 'Doctor';
-    } else if (event.value === 'Enfermero') {
+    } else if (event.value === 'Nurse') {
       this.user.professional.professionalType = 'Nurse';
     } else {
       this.user.professional.professionalType = 'Administrative';

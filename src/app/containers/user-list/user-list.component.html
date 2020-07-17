@@ -3,8 +3,10 @@
         <mat-card *ngFor="let user of getUsers()">
             <div class="container">
                 <div routerLink="/users/{{user.id}}">
-                    <h2>{{user.name}}</h2>
-                    <p>{{user.lastName}}</p>
+                    <h2>{{user.name}} {{user.lastName}}</h2>
+                    <p>ID: {{user.id}}</p>
+                    <p *ngIf="user.patient.nhc !== '' ">User type: Patient</p>
+                    <p *ngIf="user.professional.medicalBoardNumber !== '' ">User type: {{user.professional.professionalType}}</p>
                 </div>
                 <div class="buttons-card">
                     <button routerLink="/users/{{user.id}}/edit" mat-fab color="primary"

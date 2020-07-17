@@ -1,4 +1,4 @@
-export type issuranceType = '' | 'salud' | 'familiar' | 'dental';
+export type issuranceType = '' | 'Health' | 'Family' | 'Dental';
 
 export interface Issurance {
     cardNumber: string;

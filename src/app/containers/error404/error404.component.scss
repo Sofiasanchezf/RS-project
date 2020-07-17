@@ -1,8 +1,36 @@
 @import "src/colors.scss";
 
-.error404-container {
-    padding-top: 7em;
-    .titulo {
-        color: $purple;
+.principal {
+    height: 100vh;
+    // height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $purple;
+    color: white;
+
+    h1 {
+        font-weight: 500;
+        font-size: 3em;
+        margin-bottom: 2em;
+    }
+
+    
+    mat-card {
+
+        width: 50%;
+        height: 50%;
+        max-height: 25em;
+        max-width: 25em;
+        border-radius: 200px;
+        cursor: pointer;
+        outline:none;
+
+        img {
+            height: 100%;
+            width: 100%;
+            border-radius: 200px;
+        }
     }
 }
