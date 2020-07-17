@@ -225,6 +225,36 @@
         ]
       },
       "id": 14
+    },
+    {
+      "name": "hola",
+      "lastName": "hola",
+      "secondLastName": "hohoh",
+      "gender": "Female",
+      "birthDate": "",
+      "nif": "02592263W",
+      "address": {
+        "street": "Calle diamante",
+        "number": 3,
+        "door": "s",
+        "postalCode": 28021,
+        "city": "Madrid"
+      },
+      "professional": {
+        "medicalBoardNumber": "",
+        "professionalType": ""
+      },
+      "patient": {
+        "nhc": 112,
+        "issuranceList": [
+          {
+            "cardNumber": "",
+            "name": "",
+            "type": ""
+          }
+        ]
+      },
+      "id": 15
     }
   ]
 }
