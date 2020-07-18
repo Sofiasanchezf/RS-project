@@ -47,8 +47,8 @@ export class NewUserComponent implements OnInit {
 
   isPacient = true;
   uniqueId = 1;
-  minDate = new Date(2000, 0, 1).toLocaleString();
-  maxDate = new Date().toLocaleString();
+  minDate = new Date(2000, 0, 1);
+  maxDate = new Date();
 
   constructor(private userService: UserService, private router: Router,
     private route: ActivatedRoute, private fb: FormBuilder) { }
@@ -83,25 +83,12 @@ export class NewUserComponent implements OnInit {
         if (!this.isPacient && this.user.patient.nhc != '') {
           this.resetPatient();
         }
-
-        this.parseDateToString();
-        console.log(this.user.birthDate);
+        
         this.userService.addUser(this.user).subscribe(() => this.router.navigate(['/users']));
       }
 
     }
 
-  }
-
-  parseDateToString() {
-    let dateString = '' + this.user.birthDate;
-    let dateStringSplit = dateString.split(' ');
-
-    let day = dateStringSplit[2];
-    let month = this.Months.indexOf(dateStringSplit[1]);
-    let year = dateStringSplit[3];
-    
-    this.user.birthDate = day + '/' + month + '/' + year;
   }
 
   resetProfessional(): void {

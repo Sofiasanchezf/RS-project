@@ -18,16 +18,6 @@ export class UserDetailComponent implements OnInit {
   ngOnInit(): void {
     this.getUser(this.route.snapshot.params.id);
     
-
-    // this.route.params.subscribe(params => {
-    //   if (params.id) {
-    //     this.userService.getUserById(params.id)
-    //       .subscribe(post => {
-    //         this.user = post;
-    //       });
-    //   }
-    // });
-
     console.log('this ' + this.user);
 
   }
@@ -37,15 +27,9 @@ export class UserDetailComponent implements OnInit {
     
     this.userService.getUserById(id).subscribe((result: User) => {
       this.user = result;
-      console.log('user...' + this.user.patient.issuranceList[0].cardNumber);
       console.log('imprimipendo user ');
       console.log(this.user);
     });
   }
   
-//   addIssurance(postForm: NgForm): void {
-//     if (postForm.form.status === 'VALID') {
-//       this.user.patient.issuranceList
-//     }
-//   }
 }

@@ -7,7 +7,7 @@
             </div>
             <button routerLink="/users/{{user?.id}}/edit" mat-raised-button color="warn">Edit user</button>
         </div>
-        <div class="information">
+        <!-- <div class="information"> -->
             <mat-tab-group mat-align-tabs="center">
                 <mat-tab label="Personal Information">
                     <p class="line-information">Lastname</p>
@@ -19,7 +19,7 @@
                     <p class="line-information">NIF</p>
                     <p>{{user?.nif}}</p>
                     <p class="line-information">Birthdate</p>
-                    <p>{{user?.birthDate}}</p>
+                    <p>{{user?.birthDate | date: "MM/dd/yyyy"}}</p>
                 </mat-tab>
                 <mat-tab label="Address">
                     <p class="line-information">Street</p>
@@ -50,6 +50,6 @@
                     <p>{{user?.professional.professionalType}}</p>
                 </mat-tab>
             </mat-tab-group>
-        </div>
+        <!-- </div> -->
     </mat-card>
 </div>
