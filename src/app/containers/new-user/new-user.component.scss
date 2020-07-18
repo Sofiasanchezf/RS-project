@@ -40,6 +40,7 @@
 
 .new-user-container {
     padding-top: 7em;
+    padding-bottom: 1em;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -57,6 +58,13 @@
         align-items: center;
     }
 
+    .text-error {
+        color: red;
+        font-size: 8pt;
+        margin-bottom: 0;
+        margin-top: 0.6em;
+    }
+    
     mat-accordion {
         width: 80%;
     
@@ -66,6 +74,20 @@
         mat-panel-description {
             display: flex;
             justify-content: flex-end;
+        }
+
+        
+
+        .isurance-btns{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            button {
+                margin-bottom: 0.5em;
+                width: 30%;
+                max-width: 17em;
+                min-width: 10em;
+            }
         }
     }
 }

@@ -15,8 +15,6 @@ import { issuranceType } from 'src/app/models/issurance.model';
 
 export class NewUserComponent implements OnInit {
 
-  Months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "Jul", "Aug", "Sept", "Nov", "Dec"];
-
   user: User = {
     name: '',
     lastName: '',
@@ -43,11 +41,13 @@ export class NewUserComponent implements OnInit {
 
   isPacient = true;
   uniqueId = 1;
-  minDate = new Date(2000, 0, 1);
+  minDate = new Date(1800, 0, 1);
   maxDate = new Date();
+  selected = 'Pacient';
+  isFormValid = true;
 
   constructor(private userService: UserService, private router: Router,
-    private route: ActivatedRoute, private fb: FormBuilder) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -62,8 +62,7 @@ export class NewUserComponent implements OnInit {
           });
       }
     });
-    console.log(this.minDate);
-    console.log(this.maxDate);
+    
   }
 
   submitPost(postForm: NgForm): void {
@@ -83,6 +82,8 @@ export class NewUserComponent implements OnInit {
         this.userService.addUser(this.user).subscribe(() => this.router.navigate(['/users']));
       }
 
+    } else {
+      this.isFormValid = false;
     }
 
   }
