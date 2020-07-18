@@ -1,5 +1,5 @@
 <div class="center-content">
-    <mat-card>
+    <mat-card class="card-detail">
         <div class="card-header">
             <div class="title">
                 <h2>{{user?.name}} {{user?.lastName}} {{user?.secondLastName}}</h2>
@@ -8,7 +8,7 @@
             <button routerLink="/users/{{user?.id}}/edit" mat-raised-button color="warn">Edit user</button>
         </div>
         <!-- <div class="information"> -->
-            <mat-tab-group mat-align-tabs="center">
+            <mat-tab-group mat-stretch-tabs>
                 <mat-tab label="Personal Information">
                     <p class="line-information">Lastname</p>
                     <p>{{user?.lastName}}</p>
@@ -50,6 +50,5 @@
                     <p>{{user?.professional.professionalType}}</p>
                 </mat-tab>
             </mat-tab-group>
-        <!-- </div> -->
     </mat-card>
 </div>

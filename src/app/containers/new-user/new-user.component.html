@@ -1,4 +1,4 @@
-<form #newUserFrom="ngForm" novalidate (ngSubmit)="submitPost(newUserFrom)">
+<!-- <form #newUserFrom="ngForm" novalidate (ngSubmit)="submitPost(newUserFrom)">
     <div *ngIf="!user.id" class="form-container">
         <div class="flex-col-center">
             <h3>Choose if you want to create a patient or a professional</h3>
@@ -148,4 +148,214 @@
         <button *ngIf="!user.id" type="submit" mat-raised-button color="primary">Crear usuario</button>
         <button *ngIf="user.id" type="submit" mat-raised-button color="primary">Actualizar usuario</button>
     </div>
+</form> -->
+<form #newUserFrom="ngForm" novalidate (ngSubmit)="submitPost(newUserFrom)">
+    <div class="new-user-container">
+        <div *ngIf="!user.id">
+            <div class="flex-col-center">
+                <h3>Choose if you want to create a patient or a professional</h3>
+                <mat-form-field appearance="fill">
+                    <mat-label>User type</mat-label>
+                    <mat-select (selectionChange)="chooseType($event)">
+                        <mat-option value="Pacient">Pacient</mat-option>
+                        <mat-option value="Professional">Professional</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div *ngIf="user.id">
+            <div class="flex-col-center">
+                <h3>Here you can change the data of this user</h3>
+                <p>User type</p>
+                <p *ngIf="user.patient.nhc !== '' ">Pacient</p>
+                <p *ngIf="user.professional.medicalBoardNumber !== '' ">{{user.professional.professionalType}}</p>
+            </div>
+        </div>
+        <mat-accordion class="example-headers-align">
+            <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Personal data
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Type the personal data
+                        <mat-icon>account_circle</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                
+                <mat-form-field *ngIf="isPacient" appearance="fill">
+                    <mat-label>NHC</mat-label>
+                    <input type="number" required matInput name="nhc" [(ngModel)]="user.patient.nhc">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Name</mat-label>
+                    <input matInput required name="username" [(ngModel)]="user.name">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput required name="lastname" [(ngModel)]="user.lastName">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Second Last Name</mat-label>
+                    <input matInput name="secondlastname" [(ngModel)]="user.secondLastName">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>NIF / DNI</mat-label>
+                    <input pattern="[A-Za-z]{3}[0-9]{6}[A-Za-z]|[0-9]{8}[A-Za-z]" matInput name="identification"
+                        [(ngModel)]="user.nif" #identification="ngModel" id="identification">
+        
+                    <div *ngIf="identification.errors && (newUserFrom.submitted)">
+                        <p *ngIf="identification.errors.pattern">Email must contain at least the @ character</p>
+                    </div>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Gender</mat-label>
+                    <mat-select name="gender" [(ngModel)]="user.gender">
+                        <mat-option value="Male">Male</mat-option>
+                        <mat-option value="Female">Female</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <br>
+                <mat-form-field color="primary" appearance="fill">
+                    <mat-label>Custom calendar</mat-label>
+                    <input matInput type="text" [matDatepicker]="picker2" name="birthdate" [(ngModel)]="user.birthDate"
+                        #birthdate="ngModel">
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                </mat-form-field>
+                <br>
+                <!-- #docregion action-bar -->
+                <mat-action-row>
+                    <button mat-button color="primary" type="button" (click)="nextStep()">Next</button>
+                </mat-action-row>
+                <!-- #enddocregion action-bar -->
+            </mat-expansion-panel>
+        
+            <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Address</mat-panel-title>
+                    <mat-panel-description>
+                        Type the address information
+                    <mat-icon>map</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+        
+                <mat-form-field appearance="fill">
+                    <mat-label>Street</mat-label>
+                    <input matInput name="street" [(ngModel)]="user.address.street">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Number</mat-label>
+                    <input matInput type="number" name="number" [(ngModel)]="user.address.number">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Door</mat-label>
+                    <input matInput name="door" [(ngModel)]="user.address.door">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Postal Code</mat-label>
+                    <input type="number" matInput name="postalcode" [(ngModel)]="user.address.postalCode">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>City</mat-label>
+                    <input name="city" matInput [(ngModel)]="user.address.city">
+                </mat-form-field>
+                <br>
+        
+                <mat-action-row>
+                    <button mat-button color="warn" type="button" (click)="prevStep()">Previous</button>
+                    <button mat-button color="primary" type="button" (click)="nextStep()">Next</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+        
+            <mat-expansion-panel *ngIf="!isPacient" [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Type of professional
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Write the type of professional
+                        <mat-icon>assignment</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-form-field appearance="fill">
+                    <mat-label>Medical Board Number</mat-label>
+                    <input type="number" required matInput name="medicalnumber"
+                        [(ngModel)]="user.professional.medicalBoardNumber">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Professional type</mat-label>
+                    <mat-select name="professionaltype" [(ngModel)]="user.professional.professionalType"
+                        (selectionChange)="chooseProfessionalType($event)">
+                        <mat-option value="Doctor">Doctor</mat-option>
+                        <mat-option value="Nurse">Nurse</mat-option>
+                        <mat-option value="Administrative">Administrative</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <br>
+        
+                <mat-action-row>
+                    <button mat-button color="warn" type="button" (click)="prevStep()">Previous</button>
+                    <button mat-button color="primary" type="submit">End</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+        
+
+            <mat-expansion-panel *ngIf="isPacient" [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Isurance
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Type the insurance information
+                        <mat-icon>assignment</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+        
+                <div *ngFor="let insurance of user.patient.issuranceList">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Card Number {{i}}</mat-label>
+                        <input type="number" matInput name="cardnumber-{{insurance.id}}" [(ngModel)]="insurance.cardNumber">
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Name</mat-label>
+                        <input matInput name="issurancename-{{insurance.id}}" [(ngModel)]="insurance.name">
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Type</mat-label>
+                        <mat-select name="issurancetype-{{insurance.id}}" [(ngModel)]="insurance.type">
+                            <mat-option value="Health">Health</mat-option>
+                            <mat-option value="Family">Familiar</mat-option>
+                            <mat-option value="Dental">Dental</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                </div>
+                <button mat-raised-button color="accent" type="button" (click)="removeIsurance()">Remove Isurance</button>
+                <button mat-raised-button color="accent" type="button" (click)="addIsurance()">Add Isurance</button>
+                <mat-action-row>
+                    <button mat-button color="warn" type="button" (click)="prevStep()">Previous</button>
+                    <button mat-button color="primary" type="submit">End</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
 </form>
+
+
+
+<!-- Copyright 2020 Google LLC. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license -->

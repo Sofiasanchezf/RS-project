@@ -60,6 +60,30 @@
         ]
       },
       "id": 3
+    },
+    {
+      "name": "prueba",
+      "lastName": "cambio",
+      "secondLastName": "cambio",
+      "gender": "Male",
+      "birthDate": "2020-07-05T22:00:00.000Z",
+      "nif": "02592263W",
+      "address": {
+        "street": "Calle diamante",
+        "number": 2,
+        "door": "s",
+        "postalCode": 45,
+        "city": "Madrid"
+      },
+      "professional": {
+        "medicalBoardNumber": 23,
+        "professionalType": "Doctor"
+      },
+      "patient": {
+        "nhc": "",
+        "issuranceList": []
+      },
+      "id": 4
     }
   ]
 }

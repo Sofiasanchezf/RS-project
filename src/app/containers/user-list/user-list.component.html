@@ -2,13 +2,17 @@
     <div class="users-list-container">
         <mat-card *ngFor="let user of getUsers()">
             <div class="container">
-                <div routerLink="/users/{{user.id}}">
+                <div class="card-info" >
                     <h2>{{user.name}} {{user.lastName}}</h2>
                     <p>ID: {{user.id}}</p>
                     <p *ngIf="user.patient.nhc !== '' ">User type: Patient</p>
                     <p *ngIf="user.professional.medicalBoardNumber !== '' ">User type: {{user.professional.professionalType}}</p>
                 </div>
                 <div class="buttons-card">
+                    <button routerLink="/users/{{user.id}}" mat-fab color="primary"
+                        aria-label="Example icon button with a delete icon">
+                        <mat-icon>remove_red_eye</mat-icon>
+                    </button>
                     <button routerLink="/users/{{user.id}}/edit" mat-fab color="primary"
                         aria-label="Example icon button with a delete icon">
                         <mat-icon>edit</mat-icon>
@@ -17,10 +21,10 @@
                         aria-label="Example icon button with a delete icon">
                         <mat-icon>delete</mat-icon>
                     </button>
+
+                    
                 </div>
-
             </div>
-
         </mat-card>
     </div>
     <div class="buttons">

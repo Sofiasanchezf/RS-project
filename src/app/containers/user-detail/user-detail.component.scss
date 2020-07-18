@@ -5,13 +5,12 @@
     justify-content: center;
     align-items: center;
     padding-top: 7em;
-    mat-card {
+
+    .card-detail {
+        height: 30em;
         width: 60%;
         background-color: $gray;
-        h3 {
-            font-weight: 500;
-            color: $purple;
-        }
+        
     }
 
     .line-information {
@@ -35,4 +34,10 @@
         height: 3.5em;
         width: 12em;
     }
+
+    
+}
+
+.mat-tab-labels {
+    justify-content: space-around;
 }
