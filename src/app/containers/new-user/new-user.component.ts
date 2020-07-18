@@ -37,11 +37,7 @@ export class NewUserComponent implements OnInit {
     },
     patient: {
       nhc: '',
-      issuranceList: [{
-        cardNumber: '',
-        name: '',
-        type: '' as issuranceType
-      }]
+      issuranceList: []
     }
   };
 

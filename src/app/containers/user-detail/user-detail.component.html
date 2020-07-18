@@ -3,13 +3,23 @@
         <div class="card-header">
             <div class="title">
                 <h2>{{user?.name}} {{user?.lastName}} {{user?.secondLastName}}</h2>
-                <span class="line-information">ID: {{user?.id}}</span>
+                
+                <div class="card-header-info">
+                    <span class="line-information"><mat-icon>info</mat-icon>ID: {{user?.id}}</span>
+                    <span *ngIf="user?.patient.nhc != ''" class="line-information"><mat-icon>assignment_ind</mat-icon>Type: Pacient</span>
+                <span *ngIf="user?.professional.medicalBoardNumber != ''" class="line-information"><mat-icon>assignment_ind</mat-icon>Type: {{user?.professional.professionalType}}</span>
+                </div>
+                
             </div>
             <button routerLink="/users/{{user?.id}}/edit" mat-raised-button color="warn">Edit user</button>
         </div>
         <!-- <div class="information"> -->
             <mat-tab-group mat-stretch-tabs>
                 <mat-tab label="Personal Information">
+                    <p *ngIf="user?.patient.nhc != ''"  class="line-information">NHC</p>
+                    <p *ngIf="user?.patient.nhc != ''">{{user?.patient.nhc}}</p>
+                    <p class="line-information">Name</p>
+                    <p>{{user?.name}}</p>
                     <p class="line-information">Lastname</p>
                     <p>{{user?.lastName}}</p>
                     <p class="line-information">Second lastname</p>
@@ -19,7 +29,7 @@
                     <p class="line-information">NIF</p>
                     <p>{{user?.nif}}</p>
                     <p class="line-information">Birthdate</p>
-                    <p>{{user?.birthDate | date: "MM/dd/yyyy"}}</p>
+                    <p>{{user?.birthDate | date: "dd/MM/yyyy"}}</p>
                 </mat-tab>
                 <mat-tab label="Address">
                     <p class="line-information">Street</p>
@@ -32,8 +42,6 @@
                     <p>{{user?.address.postalCode}}</p>
                 </mat-tab>
                 <mat-tab *ngIf="user?.patient.nhc != ''" label="Isurance information">
-                    <p class="line-information">NHC</p>
-                    <p>{{user?.patient.nhc}}</p>
                     <mat-card *ngFor="let issurance of user?.patient.issuranceList">
                         <p class="line-information">Issurance name</p>
                         <p>{{issurance.name}}</p>

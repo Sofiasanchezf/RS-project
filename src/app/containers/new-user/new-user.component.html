@@ -178,7 +178,7 @@
                         Personal data
                     </mat-panel-title>
                     <mat-panel-description>
-                        Type the personal data
+                        
                         <mat-icon>account_circle</mat-icon>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
@@ -205,10 +205,9 @@
                 <br>
                 <mat-form-field appearance="fill">
                     <mat-label>NIF / DNI</mat-label>
-                    <input pattern="[A-Za-z]{3}[0-9]{6}[A-Za-z]|[0-9]{8}[A-Za-z]" matInput name="identification"
+                    <input pattern="[A-Za-z]{3}[0-9]{6}[A-Za-z]?$|[0-9]{8}[A-Za-z]" matInput name="identification"
                         [(ngModel)]="user.nif" #identification="ngModel" id="identification">
-        
-                    <div *ngIf="identification.errors && (newUserFrom.submitted)">
+                    <div *ngIf="identification.errors && identification.touched">
                         <p *ngIf="identification.errors.pattern">Email must contain at least the @ character</p>
                     </div>
                 </mat-form-field>
@@ -240,7 +239,7 @@
                 <mat-expansion-panel-header>
                     <mat-panel-title>Address</mat-panel-title>
                     <mat-panel-description>
-                        Type the address information
+                        
                     <mat-icon>map</mat-icon>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
@@ -283,7 +282,7 @@
                         Type of professional
                     </mat-panel-title>
                     <mat-panel-description>
-                        Write the type of professional
+                        
                         <mat-icon>assignment</mat-icon>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
@@ -317,7 +316,7 @@
                         Isurance
                     </mat-panel-title>
                     <mat-panel-description>
-                        Type the insurance information
+                        
                         <mat-icon>assignment</mat-icon>
                     </mat-panel-description>
                 </mat-expansion-panel-header>

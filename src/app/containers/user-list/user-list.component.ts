@@ -24,8 +24,7 @@ export class UserListComponent implements OnInit {
 
   openRemoveDoctorsDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
-      width: '250px',
-      data: { title: 'Eliminar todos los doctores', body: '¿Estás seguro de eliminar todos los doctores?' }
+      data: { title: 'Delete all doctors', body: 'Are you sure you want to delete all doctors?' }
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('eliminando post...', result);
@@ -47,8 +46,7 @@ export class UserListComponent implements OnInit {
 
   openRemoveDialog(id: number): void {
     const dialogRef = this.dialog.open(DialogComponent, {
-      width: '250px',
-      data: { title: 'Eliminar usuario ' + id, body: '¿Estás seguro de eliminar el usuario?' }
+      data: { title: 'Delete user ' + id, body: 'Are you sure you want to delete this user?' }
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('eliminando post...', result);

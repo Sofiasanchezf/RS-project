@@ -7,10 +7,9 @@
     padding-top: 7em;
 
     .card-detail {
-        height: 30em;
+        min-height: 30em;
         width: 60%;
         background-color: $gray;
-        
     }
 
     .line-information {
@@ -23,16 +22,43 @@
         justify-content: space-between;
         padding: 1em;
     }
-    
+
     .card-header {
-        padding: 1em;
+        // padding: 1em;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
+
+        .card-header-info {
+
+            span {
+                text-align: center;
+                margin: 1em 0 0 0;
+                display: flex;
+                // justify-content: center;
+                align-items: center;
+
+                mat-icon {
+                    margin-right: 0.2em;
+                }
+            }
+        }
+        
+    }
+
+    .title{
+        margin-bottom: 1em;
     }
 
     button {
         height: 3.5em;
-        width: 12em;
+        width: 30%;
+        max-width: 10em;
+        min-width: 6em;
+    }
+
+    mat-card {
+        margin-top: 1em;
     }
 
     
