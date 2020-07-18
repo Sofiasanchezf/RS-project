@@ -143,6 +143,10 @@ export class NewUserComponent implements OnInit {
     this.user.patient.issuranceList.push(newIsurance);
   }
 
+  removeIsurance(): void {
+    this.user.patient.issuranceList.pop();
+  }
+
 
 
 }

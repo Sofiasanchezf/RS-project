@@ -31,36 +31,6 @@
       "id": 1
     },
     {
-      "name": "sofia.sanchezf@estudiante.uam.es",
-      "lastName": "ss",
-      "secondLastName": "",
-      "gender": "",
-      "birthDate": "2020-07-14T22:00:00.000Z",
-      "nif": "",
-      "address": {
-        "street": "",
-        "number": "",
-        "door": "",
-        "postalCode": "",
-        "city": ""
-      },
-      "professional": {
-        "medicalBoardNumber": 345,
-        "professionalType": "Doctor"
-      },
-      "patient": {
-        "nhc": "",
-        "issuranceList": [
-          {
-            "cardNumber": "",
-            "name": "",
-            "type": ""
-          }
-        ]
-      },
-      "id": 2
-    },
-    {
       "name": "Marai",
       "lastName": "Sanchez",
       "secondLastName": "Fuentes",
@@ -82,9 +52,10 @@
         "nhc": 567,
         "issuranceList": [
           {
-            "cardNumber": 343434,
-            "name": "Sofia",
-            "type": "Health"
+            "id": 1,
+            "cardNumber": "",
+            "name": "",
+            "type": ""
           }
         ]
       },
