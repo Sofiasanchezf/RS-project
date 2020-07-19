@@ -1,17 +1,17 @@
 {
   "users": [
     {
-      "name": "ee",
-      "lastName": "eee",
-      "secondLastName": "",
-      "gender": "",
-      "birthDate": "",
-      "nif": "",
+      "name": "Pruebacambio",
+      "lastName": "camio1",
+      "secondLastName": "cambio2",
+      "gender": "Female",
+      "birthDate": "2020-06-02T22:00:00.000Z",
+      "nif": "02592263e",
       "address": {
-        "street": "",
-        "number": "",
-        "door": "",
-        "postalCode": "",
+        "street": "Diamante",
+        "number": 4,
+        "door": "s",
+        "postalCode": 3434,
         "city": ""
       },
       "professional": {
@@ -19,68 +19,14 @@
         "professionalType": ""
       },
       "patient": {
-        "nhc": 56,
-        "isuranceList": [
-          {
-            "cardNumber": 75757,
-            "name": "hola",
-            "type": "Health"
-          },
-          {
-            "id": 1,
-            "cardNumber": 56565656,
-            "name": "tikitiki",
-            "type": ""
-          },
-          {
-            "id": 1,
-            "cardNumber": 888,
-            "name": "nueva",
-            "type": ""
-          },
-          {
-            "id": 2,
-            "cardNumber": 94949,
-            "name": "otra",
-            "type": "Family"
-          }
-        ]
+        "nhc": 67769,
+        "insuranceList": []
       },
       "id": 1
     },
     {
-      "name": "Sofia",
-      "lastName": "Sanchez",
-      "secondLastName": "Fuentes",
-      "gender": "",
-      "birthDate": "2020-07-14T22:00:00.000Z",
-      "nif": "",
-      "address": {
-        "street": "",
-        "number": "",
-        "door": "",
-        "postalCode": "",
-        "city": ""
-      },
-      "professional": {
-        "medicalBoardNumber": "",
-        "professionalType": ""
-      },
-      "patient": {
-        "nhc": 2324,
-        "isuranceList": [
-          {
-            "cardNumber": "",
-            "name": "",
-            "type": ""
-          }
-        ]
-      },
-      "id": 2
-    },
-    {
-      "name": "hola",
-      "lastName": "hola",
+      "name": "sss",
+      "lastName": "sss",
       "secondLastName": "",
       "gender": "",
       "birthDate": "",
@@ -97,150 +43,23 @@
         "professionalType": ""
       },
       "patient": {
-        "nhc": 33,
-        "isuranceList": [
+        "nhc": 5656,
+        "insuranceList": [
           {
             "id": 1,
-            "cardNumber": 7878,
-            "name": "Hola",
+            "cardNumber": 5656,
+            "name": "56",
             "type": "Health"
           },
           {
             "id": 2,
-            "cardNumber": 55,
-            "name": "prueba2",
-            "type": ""
-          }
-        ]
-      },
-      "id": 3
-    },
-    {
-      "name": "sfasfasfsafasfssafasfasfsfasfsfafasffsdfsaf",
-      "lastName": "ssssss",
-      "secondLastName": "",
-      "gender": "",
-      "birthDate": "",
-      "nif": "",
-      "address": {
-        "street": "",
-        "number": "",
-        "door": "",
-        "postalCode": "",
-        "city": ""
-      },
-      "professional": {
-        "medicalBoardNumber": "",
-        "professionalType": ""
-      },
-      "patient": {
-        "nhc": 34343434,
-        "isuranceList": []
-      },
-      "id": 4
-    },
-    {
-      "name": "OTTOVsjsjsjsjs",
-      "lastName": "OTTOVORDEMGENTSCHENFELDE",
-      "secondLastName": "",
-      "gender": "",
-      "birthDate": "",
-      "nif": "",
-      "address": {
-        "street": "",
-        "number": "",
-        "door": "",
-        "postalCode": "",
-        "city": ""
-      },
-      "professional": {
-        "medicalBoardNumber": "",
-        "professionalType": ""
-      },
-      "patient": {
-        "nhc": 3434,
-        "isuranceList": []
-      },
-      "id": 6
-    },
-    {
-      "name": "Juan Manuel",
-      "lastName": "Sanchez",
-      "secondLastName": "García",
-      "gender": "Female",
-      "birthDate": "2020-07-01T22:00:00.000Z",
-      "nif": "02592263e",
-      "address": {
-        "street": "",
-        "number": 4,
-        "door": "s",
-        "postalCode": "",
-        "city": ""
-      },
-      "professional": {
-        "medicalBoardNumber": "",
-        "professionalType": ""
-      },
-      "patient": {
-        "nhc": 444,
-        "isuranceList": [
-          {
-            "id": 1,
-            "cardNumber": 333,
-            "name": "nueva",
+            "cardNumber": 7676,
+            "name": "other",
             "type": "Health"
           }
         ]
       },
-      "id": 7
-    },
-    {
-      "name": "sssss",
-      "lastName": "eeee",
-      "secondLastName": "",
-      "gender": "",
-      "birthDate": "",
-      "nif": "",
-      "address": {
-        "street": "",
-        "number": "",
-        "door": "",
-        "postalCode": "",
-        "city": ""
-      },
-      "professional": {
-        "medicalBoardNumber": "",
-        "professionalType": ""
-      },
-      "patient": {
-        "nhc": 787878,
-        "isuranceList": []
-      },
-      "id": 8
-    },
-    {
-      "name": "ssssss",
-      "lastName": "ssss",
-      "secondLastName": "",
-      "gender": "",
-      "birthDate": "",
-      "nif": "",
-      "address": {
-        "street": "",
-        "number": "",
-        "door": "",
-        "postalCode": "",
-        "city": ""
-      },
-      "professional": {
-        "medicalBoardNumber": "",
-        "professionalType": ""
-      },
-      "patient": {
-        "nhc": 3434,
-        "isuranceList": []
-      },
-      "id": 9
+      "id": 2
     }
   ]
 }

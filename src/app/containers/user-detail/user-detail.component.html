@@ -43,15 +43,17 @@
                     <p *ngIf="user?.address.door !== ''; else withoutDates">{{user?.address.door}}</p>
                     <p class="line-information">Postal code</p>
                     <p *ngIf="user?.address.postalCode !== ''; else withoutDates">{{user?.address.postalCode}}</p>
+                    <p class="line-information">City</p>
+                    <p *ngIf="user?.address.city !== ''; else withoutDates">{{user?.address.city}}</p>
                 </mat-tab>
-                <mat-tab *ngIf="user?.patient.nhc != ''" label="Isurance information">
-                    <mat-card *ngFor="let isurance of user?.patient.isuranceList">
-                        <p class="line-information">Isurance name</p>
-                        <p *ngIf="isurance.name !== ''; else withoutDates">{{isurance.name}}</p>
-                        <p class="line-information">Isurance card number</p>
-                        <p *ngIf="isurance.cardNumber !== ''; else withoutDates">{{isurance.cardNumber}}</p>
-                        <p class="line-information">Isurance type</p>
-                        <p *ngIf="isurance.type !== ''; else withoutDates">{{isurance.type}}</p>
+                <mat-tab *ngIf="user?.patient.nhc != ''" label="Insurance information">
+                    <mat-card *ngFor="let insurance of user?.patient.insuranceList">
+                        <p class="line-information">Insurance name</p>
+                        <p *ngIf="insurance.name !== ''; else withoutDates">{{insurance.name}}</p>
+                        <p class="line-information">Insurance card number</p>
+                        <p *ngIf="insurance.cardNumber !== ''; else withoutDates">{{insurance.cardNumber}}</p>
+                        <p class="line-information">Insurance type</p>
+                        <p *ngIf="insurance.type !== ''; else withoutDates">{{insurance.type}}</p>
                     </mat-card><br>
                 </mat-tab>
                 <mat-tab *ngIf="user?.professional.medicalBoardNumber != ''" label="More information">

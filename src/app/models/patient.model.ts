@@ -1,8 +1,8 @@
 import { User } from "./user.model";
-import { Isurance } from "./isurance.model";
+import { Insurance } from "./insurance.model";
 
 // export interface Patient extends User {
   export interface Patient {
     nhc: string;
-    isuranceList?: Isurance[];
+    insuranceList?: Insurance[];
   }

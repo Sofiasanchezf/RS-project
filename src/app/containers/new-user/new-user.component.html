@@ -147,7 +147,7 @@
                 <br>
                 <mat-form-field appearance="fill">
                     <mat-label>Professional type</mat-label>
-                    <mat-select name="professionaltype" [(ngModel)]="user.professional.professionalType"
+                    <mat-select required name="professionaltype" [(ngModel)]="user.professional.professionalType"
                         (selectionChange)="chooseProfessionalType($event)">
                         <mat-option value="Doctor">Doctor</mat-option>
                         <mat-option value="Nurse">Nurse</mat-option>
@@ -159,7 +159,7 @@
                 <mat-action-row>
                     <button mat-raised-button color="warn" type="button" routerLink="/users">Cancel</button>
                     <button mat-button color="warn" type="button" (click)="prevStep()">Previous</button>
-                    <button mat-button color="primary" type="submit">End</button>
+                    <button mat-button color="primary" type="button" (click)="nextStep()">End</button>
                 </mat-action-row>
             </mat-expansion-panel>
 
@@ -167,7 +167,7 @@
             <mat-expansion-panel *ngIf="isPatient" [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        Isurance
+                        Insurance
                     </mat-panel-title>
                     <mat-panel-description>
 
@@ -175,7 +175,7 @@
                     </mat-panel-description>
                 </mat-expansion-panel-header>
 
-                <div *ngFor="let insurance of user.patient.isuranceList">
+                <div *ngFor="let insurance of user.patient.insuranceList">
                     <mat-form-field appearance="fill">
                         <mat-label>Card Number {{i}}</mat-label>
                         <input type="number" matInput name="cardnumber-{{insurance.id}}"
@@ -184,12 +184,12 @@
                     <br>
                     <mat-form-field appearance="fill">
                         <mat-label>Name</mat-label>
-                        <input matInput name="isurancename-{{insurance.id}}" [(ngModel)]="insurance.name">
+                        <input matInput name="insurancename-{{insurance.id}}" [(ngModel)]="insurance.name">
                     </mat-form-field>
                     <br>
                     <mat-form-field appearance="fill">
                         <mat-label>Type</mat-label>
-                        <mat-select name="isurancetype-{{insurance.id}}" [(ngModel)]="insurance.type">
+                        <mat-select name="insurancetype-{{insurance.id}}" [(ngModel)]="insurance.type">
                             <mat-option value="Health">Health</mat-option>
                             <mat-option value="Family">Familiar</mat-option>
                             <mat-option value="Dental">Dental</mat-option>
@@ -197,10 +197,10 @@
                     </mat-form-field>
                     <br>
                 </div>
-                <div class="isurance-btns">
-                    <button *ngIf="user.patient.isuranceList.length != 0" mat-raised-button color="accent" type="button"
-                        (click)="removeIsurance()">Remove Isurance</button>
-                    <button mat-raised-button color="accent" type="button" (click)="addIsurance()">Add Isurance</button>
+                <div class="insurance-btns">
+                    <button *ngIf="user.patient.insuranceList.length != 0" mat-raised-button color="accent" type="button"
+                        (click)="removeInsurance()">Remove Insurance</button>
+                    <button mat-raised-button color="accent" type="button" (click)="addInsurance()">Add Insurance</button>
                 </div>
 
                 <mat-action-row>

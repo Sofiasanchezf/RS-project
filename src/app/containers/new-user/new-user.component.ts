@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, FormArray, FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { professional } from 'src/app/models/professional.model'
-import { isuranceType } from 'src/app/models/isurance.model';
+import { insuranceType } from 'src/app/models/insurance.model';
 
 @Component({
   selector: 'app-new-user',
@@ -13,6 +13,9 @@ import { isuranceType } from 'src/app/models/isurance.model';
 })
 
 
+/**
+ * NewUserComponent is a class that adds or updates an user
+ */
 export class NewUserComponent implements OnInit {
 
   user: User = {
@@ -35,7 +38,7 @@ export class NewUserComponent implements OnInit {
     },
     patient: {
       nhc: '',
-      isuranceList: []
+      insuranceList: []
     }
   };
 
@@ -51,12 +54,13 @@ export class NewUserComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    //check if user has id, in this case we want to update
     this.route.params.subscribe(params => {
       if (params.id) {
         this.userService.getUserById(params.id)
           .subscribe(user => {
             this.user = user;
-            console.log(user.professional.medicalBoardNumber)
+            // if user has medicalboardnumber, then isnt' a patient
             if (user.professional.medicalBoardNumber !== '') {
               this.isPatient = false;
             }
@@ -67,16 +71,20 @@ export class NewUserComponent implements OnInit {
   }
 
   submitPost(postForm: NgForm): void {
-    console.log(postForm);
+    // check is form is valid
     if (postForm.form.status === 'VALID') {
+
+      //if has id then update the user
       if (this.user.hasOwnProperty('id')) {
         this.userService.updateUser(this.user).subscribe(() => this.router.navigate(['/users']));
-      } else {
+      } else { //if hasn't id, create a new user
         if (this.isPatient && this.user.professional.medicalBoardNumber != '') {
+          //we empty the fields of the professional
           this.resetProfessional();
         }
 
         if (!this.isPatient && this.user.patient.nhc != '') {
+          //we empty the fields of the patient
           this.resetPatient();
         }
 
@@ -89,17 +97,28 @@ export class NewUserComponent implements OnInit {
 
   }
 
+  /**
+   * Empty the fields of a professional
+   */
   resetProfessional(): void {
     this.user.professional.medicalBoardNumber = '';
     this.user.professional.professionalType = '';
   }
 
+  /**
+   * Empty the fields of a patient
+   */
   resetPatient(): void {
     this.user.patient.nhc = '';
-    this.user.patient.isuranceList = [];
+    this.user.patient.insuranceList = [];
 
   }
 
+  /**
+   * Verify if the user is a patient or a professional.
+   *  If is a patient, returns true. If is a professional, returns false.
+   * 
+   */
   verifyIsPatient(): boolean {
     if (this.user.patient.nhc !== '') {
       return true;
@@ -108,8 +127,11 @@ export class NewUserComponent implements OnInit {
     }
   }
 
+  /**
+   * Change the type of the user depends on the value of the event
+   * @param event 
+   */
   chooseType(event): void {
-    console.log(event);
     if (event.value === 'Patient') {
       this.isPatient = true;
     } else {
@@ -117,8 +139,11 @@ export class NewUserComponent implements OnInit {
     }
   }
 
+  /**
+   * Change the type of the professional depends on the value of the event
+   * @param event 
+   */
   chooseProfessionalType(event): void {
-    console.log('event ' + event.value);
     if (event.value === 'Doctor') {
       this.user.professional.professionalType = 'Doctor';
     } else if (event.value === 'Nurse') {
@@ -127,26 +152,32 @@ export class NewUserComponent implements OnInit {
       this.user.professional.professionalType = 'Administrative';
     }
 
-    console.log(this.user);
+
   }
 
-  addIsurance(): void {
+  /**
+   * Add a new insurance to insurance list of the patient
+   */
+  addInsurance(): void {
 
-    let newIsurance = {
+    let newInsurance = {
       id: this.uniqueId++,
       cardNumber: '',
       name: '',
-      type: '' as isuranceType
+      type: '' as insuranceType
     }
-    this.user.patient.isuranceList.push(newIsurance);
+
+    this.user.patient.insuranceList.push(newInsurance);
   }
 
-  removeIsurance(): void {
-    this.user.patient.isuranceList.pop();
+  /**
+   * Remove the last insurance in the insurance list of the patient
+   */
+  removeInsurance(): void {
+    this.user.patient.insuranceList.pop();
   }
 
-  // ----------------------------
-
+  // Functions to change the step in the form
   setStep(index: number) {
     this.step = index;
   }

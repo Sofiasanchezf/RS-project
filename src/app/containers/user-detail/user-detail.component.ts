@@ -16,19 +16,16 @@ export class UserDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser(this.route.snapshot.params.id);
-    
-    console.log('this ' + this.user);
-
   }
 
+  /**
+   * Gets the user with the id that is passed by parameter
+   * @param id 
+   */
   getUser(id: string): void {
-    console.log('id:' + id);
-    
     this.userService.getUserById(id).subscribe((result: User) => {
       this.user = result;
-      console.log('imprimipendo user ');
-      console.log(this.user);
     });
   }
-  
+
 }
