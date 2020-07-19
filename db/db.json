@@ -20,7 +20,7 @@
       },
       "patient": {
         "nhc": 1,
-        "issuranceList": [
+        "isuranceList": [
           {
             "cardNumber": 75757,
             "name": "hola",
@@ -68,7 +68,7 @@
       },
       "patient": {
         "nhc": 2324,
-        "issuranceList": [
+        "isuranceList": [
           {
             "cardNumber": "",
             "name": "",
@@ -98,7 +98,7 @@
       },
       "patient": {
         "nhc": 33,
-        "issuranceList": [
+        "isuranceList": [
           {
             "id": 1,
             "cardNumber": 7878,
@@ -135,7 +135,7 @@
       },
       "patient": {
         "nhc": 34343434,
-        "issuranceList": []
+        "isuranceList": []
       },
       "id": 4
     },
@@ -159,7 +159,7 @@
       },
       "patient": {
         "nhc": 3434,
-        "issuranceList": []
+        "isuranceList": []
       },
       "id": 6
     },
@@ -183,7 +183,7 @@
       },
       "patient": {
         "nhc": 444,
-        "issuranceList": [
+        "isuranceList": [
           {
             "id": 1,
             "cardNumber": 333,
@@ -193,6 +193,78 @@
         ]
       },
       "id": 7
+    },
+    {
+      "name": "sssss",
+      "lastName": "eeee",
+      "secondLastName": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "street": "",
+        "number": "",
+        "door": "",
+        "postalCode": "",
+        "city": ""
+      },
+      "professional": {
+        "medicalBoardNumber": "",
+        "professionalType": ""
+      },
+      "patient": {
+        "nhc": 787878,
+        "isuranceList": []
+      },
+      "id": 8
+    },
+    {
+      "name": "ssssss",
+      "lastName": "ssss",
+      "secondLastName": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "street": "",
+        "number": "",
+        "door": "",
+        "postalCode": "",
+        "city": ""
+      },
+      "professional": {
+        "medicalBoardNumber": "",
+        "professionalType": ""
+      },
+      "patient": {
+        "nhc": 3434,
+        "isuranceList": []
+      },
+      "id": 9
+    },
+    {
+      "name": "prueba ",
+      "lastName": "definitiva",
+      "secondLastName": "",
+      "gender": "",
+      "birthDate": "",
+      "nif": "",
+      "address": {
+        "street": "",
+        "number": "",
+        "door": "",
+        "postalCode": "",
+        "city": ""
+      },
+      "professional": {
+        "medicalBoardNumber": "",
+        "professionalType": ""
+      },
+      "patient": {
+        "nhc": 6767,
+        "isuranceList": []
+      },
+      "id": 10
     }
   ]
 }

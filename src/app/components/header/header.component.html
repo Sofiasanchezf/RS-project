@@ -1,5 +1,24 @@
 <mat-toolbar color="primary">
-    <p routerLink="/">Home</p>
-    <p routerLink="/users">List users</p>
-</mat-toolbar>
 
+    <p class="title" routerLink="/">RS-Project</p>
+    <div class="header">
+        <p routerLink="/users">List users</p>
+        <p routerLink="/users/new">Create new user</p>
+    </div>
+
+    <!-- responsive desing -->
+    <div class="small-header">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <span routerLink="/users">List users</span>
+            </button>
+            <button mat-menu-item >
+                <span routerLink="/users/new">Create new user</span>
+            </button>
+        </mat-menu>
+    </div>
+    
+</mat-toolbar>

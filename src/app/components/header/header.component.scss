@@ -1,11 +1,48 @@
+@import "src/colors.scss";
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap");
+
 mat-toolbar {
     position: fixed;
     z-index: 10;
     height: 3.5em;
+    display: flex;
+    align-items: center;
+    .header {
+        display: flex;
+    }
+
     p {
         padding-left: 1em;
         cursor: pointer;
         outline: none;
+        font-size: 12pt;
+        margin: 0;
     }
 
+    p.title {
+        color: $yellow;
+        font-size: 25pt;
+        font-style: italic;
+        font-family: "Source Code Pro", monospace;
+        margin-bottom: 0.2em;
+        text-shadow: black 0.1em 0.1em 0.2em;
+    }
+
+    .small-header {
+        display: none;
+    }
+}
+
+@media (max-width: 486px) {
+    mat-toolbar  {
+        .small-header {
+            display: flex;
+            width: 100%;
+            justify-content: flex-end;
+        }
+
+        .header {
+            display: none;
+        }
+    }
 }

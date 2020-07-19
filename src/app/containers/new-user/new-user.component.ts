@@ -4,7 +4,7 @@ import { UserService } from 'src/app/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { professional } from 'src/app/models/professional.model'
-import { issuranceType } from 'src/app/models/issurance.model';
+import { isuranceType } from 'src/app/models/isurance.model';
 
 @Component({
   selector: 'app-new-user',
@@ -35,16 +35,17 @@ export class NewUserComponent implements OnInit {
     },
     patient: {
       nhc: '',
-      issuranceList: []
+      isuranceList: []
     }
   };
 
-  isPacient = true;
-  uniqueId = 1;
-  minDate = new Date(1800, 0, 1);
-  maxDate = new Date();
-  selected = 'Pacient';
-  isFormValid = true;
+  isPatient: boolean = true;
+  uniqueId: number = 1;
+  minDate: Date = new Date(1800, 0, 1);
+  maxDate: Date = new Date();
+  selected: string = 'Patient';
+  isFormValid: boolean = true;
+  step: number = 0;
 
   constructor(private userService: UserService, private router: Router,
     private route: ActivatedRoute) { }
@@ -57,12 +58,12 @@ export class NewUserComponent implements OnInit {
             this.user = user;
             console.log(user.professional.medicalBoardNumber)
             if (user.professional.medicalBoardNumber !== '') {
-              this.isPacient = false;
+              this.isPatient = false;
             }
           });
       }
     });
-    
+
   }
 
   submitPost(postForm: NgForm): void {
@@ -71,14 +72,14 @@ export class NewUserComponent implements OnInit {
       if (this.user.hasOwnProperty('id')) {
         this.userService.updateUser(this.user).subscribe(() => this.router.navigate(['/users']));
       } else {
-        if (this.isPacient && this.user.professional.medicalBoardNumber != '') {
+        if (this.isPatient && this.user.professional.medicalBoardNumber != '') {
           this.resetProfessional();
         }
 
-        if (!this.isPacient && this.user.patient.nhc != '') {
+        if (!this.isPatient && this.user.patient.nhc != '') {
           this.resetPatient();
         }
-        
+
         this.userService.addUser(this.user).subscribe(() => this.router.navigate(['/users']));
       }
 
@@ -95,7 +96,7 @@ export class NewUserComponent implements OnInit {
 
   resetPatient(): void {
     this.user.patient.nhc = '';
-    this.user.patient.issuranceList = [];
+    this.user.patient.isuranceList = [];
 
   }
 
@@ -109,10 +110,10 @@ export class NewUserComponent implements OnInit {
 
   chooseType(event): void {
     console.log(event);
-    if (event.value === 'Pacient') {
-      this.isPacient = true;
+    if (event.value === 'Patient') {
+      this.isPatient = true;
     } else {
-      this.isPacient = false;
+      this.isPatient = false;
     }
   }
 
@@ -135,24 +136,16 @@ export class NewUserComponent implements OnInit {
       id: this.uniqueId++,
       cardNumber: '',
       name: '',
-      type: '' as issuranceType
+      type: '' as isuranceType
     }
-    this.user.patient.issuranceList.push(newIsurance);
+    this.user.patient.isuranceList.push(newIsurance);
   }
 
   removeIsurance(): void {
-    this.user.patient.issuranceList.pop();
+    this.user.patient.isuranceList.pop();
   }
 
-
-
-
-
-
-
-
   // ----------------------------
-  step = 0;
 
   setStep(index: number) {
     this.step = index;

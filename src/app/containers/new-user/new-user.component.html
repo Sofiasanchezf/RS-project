@@ -6,7 +6,7 @@
                 <mat-form-field appearance="fill">
                     <mat-label>User type</mat-label>
                     <mat-select name="selected" [(ngModel)]="selected" (selectionChange)="chooseType($event)">
-                        <mat-option value="Pacient">Pacient</mat-option>
+                        <mat-option value="Patient">Patient</mat-option>
                         <mat-option value="Professional">Professional</mat-option>
                     </mat-select>
                 </mat-form-field>
@@ -16,7 +16,7 @@
             <div class="flex-col-center">
                 <h3>Here you can change the data of this user</h3>
                 <p>User type</p>
-                <p *ngIf="user.patient.nhc !== '' ">Pacient</p>
+                <p *ngIf="user.patient.nhc !== '' ">Patient</p>
                 <p *ngIf="user.professional.medicalBoardNumber !== '' ">{{user.professional.professionalType}}</p>
             </div>
         </div>
@@ -31,12 +31,14 @@
                         <mat-icon>account_circle</mat-icon>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
+                <div *ngIf="isPatient">
+                    <mat-form-field appearance="fill">
+                        <mat-label>NHC</mat-label>
+                        <input type="number" required matInput name="nhc" [(ngModel)]="user.patient.nhc" #nhc="ngModel">
+                    </mat-form-field>
+                    <br>
+                </div>
 
-                <mat-form-field *ngIf="isPacient" appearance="fill">
-                    <mat-label>NHC</mat-label>
-                    <input type="number" required matInput name="nhc" [(ngModel)]="user.patient.nhc" #nhc="ngModel">
-                </mat-form-field>
-                <br>
                 <mat-form-field appearance="fill">
                     <mat-label>Name</mat-label>
                     <input matInput required name="username" [(ngModel)]="user.name" #username="ngModel">
@@ -80,6 +82,7 @@
                 <br>
 
                 <mat-action-row>
+                    <button mat-raised-button color="warn" type="button" routerLink="/users">Cancel</button>
                     <button mat-button color="primary" type="button" (click)="nextStep()">Next</button>
                 </mat-action-row>
 
@@ -121,12 +124,13 @@
                 <br>
 
                 <mat-action-row>
+                    <button mat-raised-button color="warn" type="button" routerLink="/users">Cancel</button>
                     <button mat-button color="warn" type="button" (click)="prevStep()">Previous</button>
                     <button mat-button color="primary" type="button" (click)="nextStep()">Next</button>
                 </mat-action-row>
             </mat-expansion-panel>
 
-            <mat-expansion-panel *ngIf="!isPacient" [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+            <mat-expansion-panel *ngIf="!isPatient" [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         Type of professional
@@ -154,13 +158,14 @@
                 <br>
 
                 <mat-action-row>
+                    <button mat-raised-button color="warn" type="button" routerLink="/users">Cancel</button>
                     <button mat-button color="warn" type="button" (click)="prevStep()">Previous</button>
                     <button mat-button color="primary" type="submit">End</button>
                 </mat-action-row>
             </mat-expansion-panel>
 
 
-            <mat-expansion-panel *ngIf="isPacient" [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+            <mat-expansion-panel *ngIf="isPatient" [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         Isurance
@@ -171,7 +176,7 @@
                     </mat-panel-description>
                 </mat-expansion-panel-header>
 
-                <div *ngFor="let insurance of user.patient.issuranceList">
+                <div *ngFor="let insurance of user.patient.isuranceList">
                     <mat-form-field appearance="fill">
                         <mat-label>Card Number {{i}}</mat-label>
                         <input type="number" matInput name="cardnumber-{{insurance.id}}"
@@ -180,12 +185,12 @@
                     <br>
                     <mat-form-field appearance="fill">
                         <mat-label>Name</mat-label>
-                        <input matInput name="issurancename-{{insurance.id}}" [(ngModel)]="insurance.name">
+                        <input matInput name="isurancename-{{insurance.id}}" [(ngModel)]="insurance.name">
                     </mat-form-field>
                     <br>
                     <mat-form-field appearance="fill">
                         <mat-label>Type</mat-label>
-                        <mat-select name="issurancetype-{{insurance.id}}" [(ngModel)]="insurance.type">
+                        <mat-select name="isurancetype-{{insurance.id}}" [(ngModel)]="insurance.type">
                             <mat-option value="Health">Health</mat-option>
                             <mat-option value="Family">Familiar</mat-option>
                             <mat-option value="Dental">Dental</mat-option>
@@ -194,18 +199,19 @@
                     <br>
                 </div>
                 <div class="isurance-btns">
-                    <button *ngIf="user.patient.issuranceList.length != 0" mat-raised-button color="accent"
-                        type="button" (click)="removeIsurance()">Remove Isurance</button>
+                    <button *ngIf="user.patient.isuranceList.length != 0" mat-raised-button color="accent" type="button"
+                        (click)="removeIsurance()">Remove Isurance</button>
                     <button mat-raised-button color="accent" type="button" (click)="addIsurance()">Add Isurance</button>
                 </div>
 
                 <mat-action-row>
+                    <button mat-raised-button color="warn" type="button" routerLink="/users">Cancel</button>
                     <button mat-button color="warn" type="button" (click)="prevStep()">Previous</button>
-                    <button mat-button color="primary" type="submit">End</button>
+                    <button mat-button color="primary" type="button" (click)="nextStep()">End</button>
                 </mat-action-row>
             </mat-expansion-panel>
         </mat-accordion>
-
+        <button mat-raised-button color="primary" type="submit">Create user</button>
         <p *ngIf="!isFormValid" class="text-error">Please review the form and complete it correctly</p>
     </div>
 </form>

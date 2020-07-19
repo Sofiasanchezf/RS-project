@@ -1,4 +1,6 @@
 @import "src/colors.scss";
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap');
+
 .principal {
     height: 100vh;
     // height: 100%;
@@ -9,10 +11,13 @@
     background-color: $purple;
 
     h1 {
-        color: white;
+        color: $yellow;
         font-weight: 500;
-        font-size: 3em;
+        font-size: 4em;
         margin-bottom: 2em;
+        text-shadow: black 0.1em 0.1em 0.2em;
+        font-style: italic;
+        font-family: 'Source Code Pro', monospace;
     }
     
     mat-card {
