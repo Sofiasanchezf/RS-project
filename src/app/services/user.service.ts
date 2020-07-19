@@ -8,7 +8,7 @@ import { NgForm } from '@angular/forms';
   providedIn: 'root'
 })
 export class UserService {
-  private API_URL = 'http://localhost:3000/';
+  private API_URL = 'http://192.168.0.160:3000/';
   private users: User[];
 
   constructor(private httpClient: HttpClient) { }

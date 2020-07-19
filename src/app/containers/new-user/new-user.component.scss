@@ -12,11 +12,7 @@
     padding-top: 3em;
 }
 
-.flex-col-center {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
+
 
 .content-center {
     display: flex;
@@ -46,6 +42,16 @@
     flex-direction: column;
     // justify-content: center;
     align-items: center;
+
+    .flex-col-center {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        p {
+            font-weight: 600;
+            margin-bottom: 2em;
+        }
+    }
 
     h3 {
         margin: 1em;

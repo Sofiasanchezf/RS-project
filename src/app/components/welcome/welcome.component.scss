@@ -3,7 +3,6 @@
 
 .principal {
     height: 100vh;
-    // height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,7 +22,7 @@
     mat-card {
 
         width: 50%;
-        height: 50%;
+        height: auto;
         max-height: 25em;
         max-width: 25em;
         border-radius: 200px;
@@ -36,4 +35,14 @@
             border-radius: 200px;
         }
     }
+}
+
+
+@media (max-width:425px) {
+    .principal {
+        h1 {
+            font-size: 3em;
+        }
+    }
+    
 }

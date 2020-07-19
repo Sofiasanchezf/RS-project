@@ -15,9 +15,8 @@
         <div *ngIf="user.id">
             <div class="flex-col-center">
                 <h3>Here you can change the data of this user</h3>
-                <p>User type</p>
-                <p *ngIf="user.patient.nhc !== '' ">Patient</p>
-                <p *ngIf="user.professional.medicalBoardNumber !== '' ">{{user.professional.professionalType}}</p>
+                <p *ngIf="user.patient.nhc !== '' ">User type: Patient</p>
+                <p *ngIf="user.professional.medicalBoardNumber !== '' ">User type: {{user.professional.professionalType}}</p>
             </div>
         </div>
         <mat-accordion class="example-headers-align">
@@ -211,7 +210,8 @@
                 </mat-action-row>
             </mat-expansion-panel>
         </mat-accordion>
-        <button mat-raised-button color="primary" type="submit">Create user</button>
+        <button *ngIf="user.id" mat-raised-button color="primary" type="submit">Update user</button>
+        <button *ngIf="!user.id" mat-raised-button color="primary" type="submit">Create user</button>
         <p *ngIf="!isFormValid" class="text-error">Please review the form and complete it correctly</p>
     </div>
 </form>

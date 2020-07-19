@@ -16,7 +16,7 @@
         <!-- <div class="information"> -->
             <mat-tab-group mat-stretch-tabs>
                 <mat-tab label="Personal Information">
-                    <p *ngIf="user?.patient.nhc != ''"  class="line-information">NHC</p>
+                    <p *ngIf="user?.patient.nhc != ''"  class="line-information">Clinic history number</p>
                     <p *ngIf="user?.patient.nhc != ''">{{user?.patient.nhc}}</p>
                     <p class="line-information">Name</p>
                     <p>{{user?.name}}</p>

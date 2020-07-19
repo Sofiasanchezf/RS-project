@@ -19,7 +19,7 @@
         "professionalType": ""
       },
       "patient": {
-        "nhc": 1,
+        "nhc": 56,
         "isuranceList": [
           {
             "cardNumber": 75757,
@@ -164,9 +164,9 @@
       "id": 6
     },
     {
-      "name": "cambiado",
-      "lastName": "pacienteeeeeeeeeeee",
-      "secondLastName": "ultimo",
+      "name": "Juan Manuel",
+      "lastName": "Sanchez",
+      "secondLastName": "García",
       "gender": "Female",
       "birthDate": "2020-07-01T22:00:00.000Z",
       "nif": "02592263e",
@@ -241,30 +241,6 @@
         "isuranceList": []
       },
       "id": 9
-    },
-    {
-      "name": "prueba ",
-      "lastName": "definitiva",
-      "secondLastName": "",
-      "gender": "",
-      "birthDate": "",
-      "nif": "",
-      "address": {
-        "street": "",
-        "number": "",
-        "door": "",
-        "postalCode": "",
-        "city": ""
-      },
-      "professional": {
-        "medicalBoardNumber": "",
-        "professionalType": ""
-      },
-      "patient": {
-        "nhc": 6767,
-        "isuranceList": []
-      },
-      "id": 10
     }
   ]
 }
