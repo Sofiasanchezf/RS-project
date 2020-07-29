@@ -41,7 +41,7 @@ export class UserListComponent implements OnInit {
         );
         
         for (let doctor of doctors) {
-          this.userService.deleteUser(doctor.id).subscribe(() => {
+          this.userService.deleteUser(doctor._id).subscribe(() => {
             this.userService.getAllUsers();
           });
         }
@@ -55,7 +55,7 @@ export class UserListComponent implements OnInit {
    * If you mark yes, it is deleted, if you cancel the operation is not performed.
    * @param id id of the user
    */
-  openRemoveDialog(id: number): void {
+  openRemoveDialog(id: string): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       data: { title: 'Delete user ' + id, body: 'Are you sure you want to delete this user?' }
     });

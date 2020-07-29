@@ -51,10 +51,10 @@ export class NewUserComponent implements OnInit {
   step: number = 0;
 
   constructor(private userService: UserService, private router: Router,
-    private route: ActivatedRoute) { }
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    //check if user has id, in this case we want to update
+    // check if user has id, in this case we want to update
     this.route.params.subscribe(params => {
       if (params.id) {
         this.userService.getUserById(params.id)
@@ -74,17 +74,17 @@ export class NewUserComponent implements OnInit {
     // check is form is valid
     if (postForm.form.status === 'VALID') {
 
-      //if has id then update the user
-      if (this.user.hasOwnProperty('id')) {
+      // if has id then update the user
+      if (this.user.hasOwnProperty('_id')) {
         this.userService.updateUser(this.user).subscribe(() => this.router.navigate(['/users']));
-      } else { //if hasn't id, create a new user
+      } else { // if hasn't id, create a new user
         if (this.isPatient && this.user.professional.medicalBoardNumber != '') {
-          //we empty the fields of the professional
+          // we empty the fields of the professional
           this.resetProfessional();
         }
 
         if (!this.isPatient && this.user.patient.nhc != '') {
-          //we empty the fields of the patient
+          // we empty the fields of the patient
           this.resetPatient();
         }
 
@@ -161,12 +161,12 @@ export class NewUserComponent implements OnInit {
   addInsurance(): void {
 
     let newInsurance = {
-      id: this.uniqueId++,
+      uniqueId: this.uniqueId++,
       cardNumber: '',
       name: '',
       type: '' as insuranceType
     }
-
+    console.log(newInsurance);
     this.user.patient.insuranceList.push(newInsurance);
   }
 

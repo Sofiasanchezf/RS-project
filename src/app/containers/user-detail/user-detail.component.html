@@ -5,13 +5,13 @@
                 <h2>{{user?.name}} {{user?.lastName}} {{user?.secondLastName}}</h2>
                 
                 <div class="card-header-info">
-                    <span class="line-information"><mat-icon>info</mat-icon>ID: {{user?.id}}</span>
+                    <span class="line-information"><mat-icon>info</mat-icon>ID: {{user?._id}}</span>
                     <span *ngIf="user?.patient.nhc != ''" class="line-information"><mat-icon>assignment_ind</mat-icon>Type: Patient</span>
                 <span *ngIf="user?.professional.medicalBoardNumber != ''" class="line-information"><mat-icon>assignment_ind</mat-icon>Type: {{user?.professional.professionalType}}</span>
                 </div>
                 
             </div>
-            <button routerLink="/users/{{user?.id}}/edit" mat-raised-button color="warn">Edit user</button>
+            <button routerLink="/users/{{user?._id}}/edit" mat-raised-button color="warn">Edit user</button>
         </div>
         <!-- <div class="information"> -->
             <mat-tab-group mat-stretch-tabs>

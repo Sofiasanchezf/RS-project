@@ -1,6 +1,6 @@
 <form #newUserFrom="ngForm" novalidate (ngSubmit)="submitPost(newUserFrom)">
     <div class="new-user-container">
-        <div *ngIf="!user.id">
+        <div *ngIf="!user._id">
             <div class="flex-col-center">
                 <h3>Choose if you want to create a patient or a professional</h3>
                 <mat-form-field appearance="fill">
@@ -12,7 +12,7 @@
                 </mat-form-field>
             </div>
         </div>
-        <div *ngIf="user.id">
+        <div *ngIf="user._id">
             <div class="flex-col-center">
                 <h3>Here you can change the data of this user</h3>
                 <p *ngIf="user.patient.nhc !== '' ">User type: Patient</p>
@@ -175,28 +175,28 @@
                     </mat-panel-description>
                 </mat-expansion-panel-header>
 
-                <div *ngFor="let insurance of user.patient.insuranceList">
+                <mat-card *ngFor="let insurance of user.patient.insuranceList">
                     <mat-form-field appearance="fill">
-                        <mat-label>Card Number {{i}}</mat-label>
-                        <input type="number" matInput name="cardnumber-{{insurance.id}}"
+                        <mat-label>Card Number</mat-label>
+                        <input type="number" matInput name="cardnumber-{{insurance.uniqueId}}"
                             [(ngModel)]="insurance.cardNumber">
                     </mat-form-field>
                     <br>
                     <mat-form-field appearance="fill">
                         <mat-label>Name</mat-label>
-                        <input matInput name="insurancename-{{insurance.id}}" [(ngModel)]="insurance.name">
+                        <input matInput name="insurancename-{{insurance.uniqueId}}" [(ngModel)]="insurance.name">
                     </mat-form-field>
                     <br>
                     <mat-form-field appearance="fill">
                         <mat-label>Type</mat-label>
-                        <mat-select name="insurancetype-{{insurance.id}}" [(ngModel)]="insurance.type">
+                        <mat-select name="insurancetype-{{insurance.uniqueId}}" [(ngModel)]="insurance.type">
                             <mat-option value="Health">Health</mat-option>
                             <mat-option value="Family">Familiar</mat-option>
                             <mat-option value="Dental">Dental</mat-option>
                         </mat-select>
                     </mat-form-field>
                     <br>
-                </div>
+                </mat-card>
                 <div class="insurance-btns">
                     <button *ngIf="user.patient.insuranceList.length != 0" mat-raised-button color="accent" type="button"
                         (click)="removeInsurance()">Remove Insurance</button>
@@ -210,8 +210,8 @@
                 </mat-action-row>
             </mat-expansion-panel>
         </mat-accordion>
-        <button *ngIf="user.id" mat-raised-button color="primary" type="submit">Update user</button>
-        <button *ngIf="!user.id" mat-raised-button color="primary" type="submit">Create user</button>
+        <button *ngIf="user._id" mat-raised-button color="primary" type="submit">Update user</button>
+        <button *ngIf="!user._id" mat-raised-button color="primary" type="submit">Create user</button>
         <p *ngIf="!isFormValid" class="text-error">Please review the form and complete it correctly</p>
     </div>
 </form>

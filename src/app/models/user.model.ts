@@ -3,7 +3,7 @@ import { Patient } from "./patient.model";
 import { Professional } from "./professional.model";
 
 export interface User {
-    id?: number;
+    _id?: string;
     name: string;
     lastName: string;
     secondLastName?: string;

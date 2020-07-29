@@ -15,9 +15,10 @@ export class UserService {
   /**
    * Gets all users
    */
-  getAllUsers():void {
-    this.httpClient.get<User[]>(this.API_URL + 'users').subscribe(users => this.users = users);
-    
+  getAllUsers(): void {
+    this.httpClient.get<User[]>(this.API_URL + 'users').subscribe(users => {
+      this.users = users;
+    });
   }
 
   /**
@@ -39,7 +40,7 @@ export class UserService {
    * Delete a user with the id given
    * @param id 
    */
-  deleteUser(id: number): Observable<object> {
+  deleteUser(id: string): Observable<object> {
     return this.httpClient.delete<object>(this.API_URL + 'users/' + id);
   }
 
@@ -56,7 +57,7 @@ export class UserService {
    * @param user 
    */
   updateUser(user: User): Observable<User> {
-    return this.httpClient.put<User>(this.API_URL + 'users/' + user.id, user);
+    return this.httpClient.put<User>(this.API_URL + 'users/' + user._id, user);
   }
 
 }

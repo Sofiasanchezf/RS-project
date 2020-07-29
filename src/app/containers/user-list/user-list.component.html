@@ -8,20 +8,20 @@
             <div class="container">
                 <div class="card-info" >
                     <h2>{{user.name}} {{user.lastName}}</h2>
-                    <p>ID: {{user.id}}</p>
+                    <p>ID: {{user._id}}</p>
                     <p *ngIf="user.patient.nhc !== '' ">User type: Patient</p>
                     <p *ngIf="user.professional.medicalBoardNumber !== '' ">User type: {{user.professional.professionalType}}</p>
                 </div>
                 <div class="buttons-card">
-                    <button routerLink="/users/{{user.id}}" mat-fab color="primary"
+                    <button routerLink="/users/{{user._id}}" mat-fab color="primary"
                         aria-label="Example icon button with a delete icon">
                         <mat-icon>remove_red_eye</mat-icon>
                     </button>
-                    <button routerLink="/users/{{user.id}}/edit" mat-fab color="primary"
+                    <button routerLink="/users/{{user._id}}/edit" mat-fab color="primary"
                         aria-label="Example icon button with a delete icon">
                         <mat-icon>edit</mat-icon>
                     </button>
-                    <button (click)="openRemoveDialog(user.id)" mat-fab color="warn"
+                    <button (click)="openRemoveDialog(user._id)" mat-fab color="warn"
                         aria-label="Example icon button with a delete icon">
                         <mat-icon>delete</mat-icon>
                     </button>
