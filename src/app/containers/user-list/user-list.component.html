@@ -8,7 +8,8 @@
             <div class="container">
                 <div class="card-info" >
                     <h2>{{user.name}} {{user.lastName}}</h2>
-                    <p>ID: {{user._id}}</p>
+                    <p *ngIf="user.patient.nhc !== '' ">CHN: {{user.patient.nhc}}</p>
+                    <p *ngIf="user.professional.medicalBoardNumber !== '' ">Medical number: {{user.professional.medicalBoardNumber}} </p>
                     <p *ngIf="user.patient.nhc !== '' ">User type: Patient</p>
                     <p *ngIf="user.professional.medicalBoardNumber !== '' ">User type: {{user.professional.professionalType}}</p>
                 </div>
