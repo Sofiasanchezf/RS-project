@@ -175,21 +175,21 @@
                     </mat-panel-description>
                 </mat-expansion-panel-header>
 
-                <mat-card *ngFor="let insurance of user.patient.insuranceList">
+                <mat-card *ngFor="let insurance of user.patient.insuranceList; let i = index">
                     <mat-form-field appearance="fill">
                         <mat-label>Card Number</mat-label>
-                        <input type="number" matInput name="cardnumber-{{insurance.uniqueId}}"
+                        <input type="number" matInput name="cardnumber-{{i}}"
                             [(ngModel)]="insurance.cardNumber">
                     </mat-form-field>
                     <br>
                     <mat-form-field appearance="fill">
                         <mat-label>Name</mat-label>
-                        <input matInput name="insurancename-{{insurance.uniqueId}}" [(ngModel)]="insurance.name">
+                        <input matInput name="insurancename-{{i}}" [(ngModel)]="insurance.name">
                     </mat-form-field>
                     <br>
                     <mat-form-field appearance="fill">
                         <mat-label>Type</mat-label>
-                        <mat-select name="insurancetype-{{insurance.uniqueId}}" [(ngModel)]="insurance.type">
+                        <mat-select name="insurancetype-{{i}}" [(ngModel)]="insurance.type">
                             <mat-option value="Health">Health</mat-option>
                             <mat-option value="Family">Familiar</mat-option>
                             <mat-option value="Dental">Dental</mat-option>

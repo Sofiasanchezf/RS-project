@@ -42,13 +42,12 @@ export class NewUserComponent implements OnInit {
     }
   };
 
-  isPatient: boolean = true;
-  uniqueId: number = 1;
+  isPatient = true;
   minDate: Date = new Date(1800, 0, 1);
   maxDate: Date = new Date();
-  selected: string = 'Patient';
-  isFormValid: boolean = true;
-  step: number = 0;
+  selected = 'Patient';
+  isFormValid = true;
+  step = 0;
 
   constructor(private userService: UserService, private router: Router,
               private route: ActivatedRoute) { }
@@ -160,8 +159,7 @@ export class NewUserComponent implements OnInit {
    */
   addInsurance(): void {
 
-    let newInsurance = {
-      uniqueId: this.uniqueId++,
+    const newInsurance = {
       cardNumber: '',
       name: '',
       type: '' as insuranceType
