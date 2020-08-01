@@ -176,15 +176,15 @@ export class NewUserComponent implements OnInit {
   }
 
   // Functions to change the step in the form
-  setStep(index: number) {
+  setStep(index: number): void {
     this.step = index;
   }
 
-  nextStep() {
+  nextStep(): void {
     this.step++;
   }
 
-  prevStep() {
+  prevStep(): void {
     this.step--;
   }
 }
